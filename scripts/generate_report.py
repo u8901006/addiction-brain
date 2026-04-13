@@ -16,7 +16,7 @@ import httpx
 API_BASE = os.environ.get(
     "ZHIPU_API_BASE", "https://open.bigmodel.cn/api/coding/paas/v4"
 )
-MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-5.1")
+MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-4-flash")
 
 SYSTEM_PROMPT = (
     "你是成癮醫學與心理學的文獻分析專家。你的任務是：\n"
@@ -33,6 +33,33 @@ SYSTEM_PROMPT = (
 )
 
 
+def repair_json(text: str) -> str:
+    import re
+    text = text.strip()
+    if not text:
+        return text
+    open_braces = text.count("{") - text.count("}")
+    open_brackets = text.count("[") - text.count("]")
+    if open_braces > 0:
+        text += "}" * open_braces
+    if open_brackets > 0:
+        text += "]" * open_brackets
+    last_comma = text.rfind(",")
+    last_brace = max(text.rfind("}"), text.rfind("]"))
+    if last_comma > last_brace:
+        text = text[:last_comma]
+    text = re.sub(r',\s*([}\]])', r'\1', text)
+    if text and not text.rstrip().endswith("}") and not text.rstrip().endswith("]"):
+        text = text.rstrip().rstrip(",")
+        open_braces = text.count("{") - text.count("}")
+        open_brackets = text.count("[") - text.count("]")
+        if open_braces > 0:
+            text += "}" * open_braces
+        if open_brackets > 0:
+            text += "]" * open_brackets
+    return text
+
+
 def load_papers(input_path: str) -> dict:
     if input_path == "-":
         data = json.load(sys.stdin)
@@ -46,8 +73,17 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
     tz_taipei = timezone(timedelta(hours=8))
     date_str = papers_data.get("date", datetime.now(tz_taipei).strftime("%Y-%m-%d"))
     paper_count = papers_data.get("count", 0)
+    trimmed_papers = []
+    for p in papers_data.get("papers", [])[:25]:
+        trimmed_papers.append({
+            "title": p.get("title", ""),
+            "journal": p.get("journal", ""),
+            "abstract": p.get("abstract", "")[:500],
+            "url": p.get("url", ""),
+            "keywords": p.get("keywords", [])[:5],
+        })
     papers_text = json.dumps(
-        papers_data.get("papers", []), ensure_ascii=False, indent=2
+        trimmed_papers, ensure_ascii=False, indent=2
     )
 
     prompt = f"""以下是 {date_str} 從 PubMed 抓取的最新成癮醫學文獻（共 {paper_count} 篇）。
@@ -99,9 +135,9 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
 原始文獻資料：
 {papers_text}
 
-請挑選出最重要的 TOP 5-8 篇文章放入 top_picks（按重要性排序），其餘放入 all_papers。
-每篇 paper 的 tags 請從以下選擇：物質使用、酒精、鴉片類、尼古丁、大麻、興奮劑、行為成癮、 gambling、gaming、網路成癮、智慧型手機成癮、雙重診斷、心理治療、藥物治療、buprenorphine、naltrexone、美沙冬、動機式晤談、contingency management、危害減少、復發預防、craving、withdrawal、神經生物學、公共衛生、政策、流行病學、青少年、孕婦、老年。
-注意：回傳純 JSON，不要用 ```json``` 包裹。"""
+請挑選出最重要的 TOP 5 篇文章放入 top_picks（按重要性排序），其餘放入 all_papers。
+每篇 paper 的 tags 最多3個，請從以下選擇：物質使用、酒精、鴉片類、尼古丁、大麻、興奮劑、行為成癮、gambling、gaming、雙重診斷、心理治療、藥物治療、危害減少、復發預防、神經生物學、公共衛生、青少年。
+注意：回傳純 JSON，不要用 ```json``` 包裹。回傳內容必須是完整可解析的 JSON，不要截斷。"""
 
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -116,10 +152,10 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
         ],
         "temperature": 0.3,
         "top_p": 0.9,
-        "max_tokens": 8192,
+        "max_tokens": 4096,
     }
 
-    models_to_try = [MODEL_NAME, "glm-4-plus", "glm-4-flash", "glm-4"]
+    models_to_try = [MODEL_NAME, "glm-4-flash"]
 
     for model in models_to_try:
         payload["model"] = model
@@ -132,19 +168,24 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
                     f"{API_BASE}/chat/completions",
                     headers=headers,
                     json=payload,
-                    timeout=120,
+                    timeout=300,
                 )
                 if resp.status_code == 429:
-                    wait = 60 * (attempt + 1)
+                    wait = 30 * (attempt + 1)
                     print(f"[WARN] Rate limited, waiting {wait}s...", file=sys.stderr)
                     time.sleep(wait)
                     continue
                 resp.raise_for_status()
                 data = resp.json()
                 text = data["choices"][0]["message"]["content"].strip()
+                finish_reason = data["choices"][0].get("finish_reason", "")
                 if text.startswith("```"):
                     text = text.split("\n", 1)[1] if "\n" in text else text[3:]
                     text = text.rstrip("`").strip()
+
+                if finish_reason == "length":
+                    print(f"[WARN] Response truncated (finish_reason=length), attempting repair...", file=sys.stderr)
+                    text = repair_json(text)
 
                 result = json.loads(text)
                 print(
@@ -158,8 +199,15 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
                     f"[WARN] JSON parse failed on attempt {attempt + 1}: {e}",
                     file=sys.stderr,
                 )
+                repaired = repair_json(text)
+                try:
+                    result = json.loads(repaired)
+                    print(f"[INFO] JSON repaired successfully", file=sys.stderr)
+                    return result
+                except:
+                    pass
                 if attempt < 2:
-                    time.sleep(5)
+                    time.sleep(10)
                 continue
             except httpx.HTTPStatusError as e:
                 print(
@@ -167,10 +215,13 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
                     file=sys.stderr,
                 )
                 if e.response.status_code == 429:
-                    wait = 60 * (attempt + 1)
+                    wait = 30 * (attempt + 1)
                     time.sleep(wait)
                     continue
                 break
+            except httpx.ReadTimeout:
+                print(f"[WARN] {model} timed out on attempt {attempt + 1}", file=sys.stderr)
+                continue
             except Exception as e:
                 print(f"[ERROR] {model} failed: {e}", file=sys.stderr)
                 break
