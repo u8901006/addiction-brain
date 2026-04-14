@@ -136,7 +136,7 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
 {papers_text}
 
 請挑選出最重要的 TOP 5 篇文章放入 top_picks（按重要性排序），其餘放入 all_papers。
-每篇 paper 的 tags 最多3個，請從以下選擇：物質使用、酒精、鴉片類、尼古丁、大麻、興奮劑、行為成癮、gambling、gaming、雙重診斷、心理治療、藥物治療、危害減少、復發預防、神經生物學、公共衛生、青少年。
+每篇 paper 的 tags 最多3個，請從以下選擇：物質使用、酒精、鴉片類、尼古丁、大麻、興奮劑、ketamine、GHB、etomidate、行為成癮、gambling、gaming、強迫性性行為、窺視癖、戀童癖、偷拍、雙重診斷、心理治療、藥物治療、危害減少、復發預防、神經生物學、公共衛生、青少年、司法精神醫學。
 注意：回傳純 JSON，不要用 ```json``` 包裹。回傳內容必須是完整可解析的 JSON，不要截斷。"""
 
     headers = {

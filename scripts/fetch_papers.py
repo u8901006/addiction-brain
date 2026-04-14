@@ -35,36 +35,127 @@ JOURNALS = [
     "Alcohol Alcohol",
     "Am J Drug Alcohol Abuse",
     "Drug Alcohol Rev",
+    "Sexual Abuse",
+    "Arch Sex Behav",
+    "J Sex Marital Ther",
 ]
 
 TOPICS = [
     "addiction",
     "substance use disorder",
     "alcohol use disorder",
+    "alcohol dependence",
+    "alcohol misuse",
+    "binge drinking",
     "opioid use disorder",
     "behavioral addiction",
     "gambling disorder",
+    "problem gambling",
+    "pathological gambling",
     "gaming disorder",
+    "internet addiction",
+    "smartphone addiction",
+    "compulsive sexual behavior",
+    "hypersexuality",
+    "sexual addiction",
+    "problematic sexual behavior",
+    "problematic pornography use",
+    "voyeuristic disorder",
+    "voyeurism",
+    "pedophilic disorder",
+    "pedophilia",
+    "image-based sexual abuse",
+    "non-consensual recording",
+    "technology-facilitated sexual violence",
     "nicotine dependence",
+    "cannabis use disorder",
+    "cannabis dependence",
+    "ketamine misuse",
+    "ketamine dependence",
+    "ketamine use disorder",
+    "GHB misuse",
+    "GHB dependence",
+    "gamma-hydroxybutyrate",
+    "etomidate misuse",
+    "etomidate dependence",
     "craving",
     "withdrawal",
     "relapse prevention",
     "harm reduction",
     "buprenorphine",
     "naltrexone",
+    "methadone",
+    "acamprosate",
     "motivational interviewing",
     "contingency management",
     "dual diagnosis",
+    "impulsivity",
+    "compulsivity",
+    "reward processing",
+    "emotion regulation",
+    "trauma",
+    "dissociation",
+    "suicidality",
+    "forensic psychiatry",
+    "risk assessment",
+    "recidivism",
+    "screening",
+    "brief intervention",
+    "CBT",
+    "mindfulness",
+    "ACT",
+    "pharmacotherapy",
+]
+
+EXTRA_SEARCH_TEMPLATES = [
+    '("compulsive sexual behavior"[tiab] OR "sexual addiction"[tiab] OR hypersexuality[tiab] OR "problematic sexual behavior"[tiab]) AND (treatment[tiab] OR prevalence[tiab] OR comorbidity[tiab])',
+    '("compulsive sexual behavior"[tiab] OR hypersexuality[tiab] OR "sexual addiction"[tiab]) AND (trauma[tiab] OR PTSD[tiab] OR dissociation[tiab] OR "childhood adversity"[tiab] OR shame[tiab] OR "emotion regulation"[tiab])',
+    '("compulsive sexual behavior"[tiab] OR "sexual addiction"[tiab] OR hypersexuality[tiab]) AND (pornography[tiab] OR "problematic pornography use"[tiab] OR "online sexual behavior"[tiab] OR cybersex[tiab])',
+    '("gambling disorder"[tiab] OR "problem gambling"[tiab] OR "pathological gambling"[tiab]) AND (screening[tiab] OR treatment[tiab] OR prevalence[tiab] OR comorbidity[tiab] OR intervention[tiab])',
+    '("gambling disorder"[tiab] OR "problem gambling"[tiab] OR "pathological gambling"[tiab]) AND (depression[tiab] OR anxiety[tiab] OR suicid*[tiab] OR "substance use"[tiab] OR alcohol[tiab] OR ADHD[tiab])',
+    '("gambling disorder"[tiab] OR "problem gambling"[tiab]) AND (screening[tiab] OR "brief screening"[tiab] OR questionnaire[tiab]) AND ("mental health"[tiab] OR psychiatry[tiab] OR "primary care"[tiab])',
+    '("voyeuristic disorder"[tiab] OR voyeurism[tiab] OR "voyeuristic behavior"[tiab]) AND (assessment[tiab] OR treatment[tiab] OR forensic[tiab] OR psychiatry[tiab] OR comorbidity[tiab] OR risk[tiab])',
+    '(voyeurism[tiab] OR "voyeuristic disorder"[tiab] OR "sexual offending"[tiab]) AND (recidivism[tiab] OR "risk assessment"[tiab] OR forensic[tiab] OR treatment[tiab] OR criminology[tiab])',
+    '("pedophilic disorder"[tiab] OR pedophilia[tiab] OR "minor-attracted persons"[tiab]) AND (assessment[tiab] OR treatment[tiab] OR prevention[tiab] OR psychotherapy[tiab] OR neurobiology[tiab] OR forensic[tiab])',
+    '("pedophilic disorder"[tiab] OR pedophilia[tiab] OR "minor-attracted persons"[tiab]) AND ("child sexual abuse material"[tiab] OR "child sexual exploitation material"[tiab] OR CSAM[tiab] OR "child pornography"[tiab]) AND (forensic[tiab] OR treatment[tiab] OR risk[tiab] OR prevention[tiab])',
+    '("pedophilic disorder"[tiab] OR pedophilia[tiab]) AND (cognition[tiab] OR "executive function"[tiab] OR empathy[tiab] OR impulsivity[tiab] OR neuroimaging[tiab] OR "risk assessment"[tiab])',
+    '("image-based sexual abuse"[tiab] OR "non-consensual intimate image"[tiab] OR "non-consensual recording"[tiab] OR "covert recording"[tiab] OR "illicit filming"[tiab] OR "surreptitious recording"[tiab] OR "technology-facilitated sexual violence"[tiab]) AND (forensic[tiab] OR psychiatry[tiab] OR victimization[tiab] OR offender*[tiab] OR prevention[tiab] OR legal[tiab])',
+    '(voyeurism[tiab] OR "voyeuristic disorder"[tiab] OR "image-based sexual abuse"[tiab] OR "non-consensual recording"[tiab]) AND (digital[tiab] OR online[tiab] OR filming[tiab] OR recording[tiab] OR smartphone[tiab])',
+    '("alcohol use disorder"[tiab] OR "alcohol dependence"[tiab] OR "alcohol misuse"[tiab] OR alcoholism[tiab]) AND (treatment[tiab] OR pharmacotherapy[tiab] OR psychotherapy[tiab] OR relapse[tiab] OR withdrawal[tiab])',
+    '("alcohol use disorder"[tiab] OR "alcohol dependence"[tiab]) AND (depression[tiab] OR anxiety[tiab] OR PTSD[tiab] OR suicid*[tiab] OR insomnia[tiab] OR "psychiatric comorbidity"[tiab])',
+    '(ketamine[tiab]) AND ("alcohol use disorder"[tiab] OR "alcohol dependence"[tiab] OR alcoholism[tiab]) AND (craving[tiab] OR abstinence[tiab] OR relapse[tiab] OR treatment[tiab])',
+    '("gamma-hydroxybutyrate"[tiab] OR "gamma hydroxybutyrate"[tiab] OR GHB[tiab] OR GBL[tiab] OR "1,4-butanediol"[tiab]) AND (misuse[tiab] OR dependence[tiab] OR withdrawal[tiab] OR intoxication[tiab] OR overdose[tiab] OR treatment[tiab])',
+    '("gamma-hydroxybutyrate"[tiab] OR GHB[tiab] OR GBL[tiab]) AND (withdrawal[tiab] OR detoxification[tiab] OR benzodiazepine*[tiab] OR baclofen[tiab] OR ICU[tiab] OR delirium[tiab])',
+    '("cannabis use disorder"[tiab] OR "marijuana use disorder"[tiab] OR "cannabis dependence"[tiab] OR "heavy cannabis use"[tiab]) AND (treatment[tiab] OR withdrawal[tiab] OR comorbidity[tiab] OR cognition[tiab] OR psychosis[tiab])',
+    '("cannabis use disorder"[tiab] OR "cannabis dependence"[tiab]) AND (anxiety[tiab] OR depression[tiab] OR psychosis[tiab] OR bipolar[tiab] OR ADHD[tiab] OR sleep[tiab])',
+    '(ketamine[tiab]) AND (misuse[tiab] OR abuse[tiab] OR dependence[tiab] OR "use disorder"[tiab] OR recreational[tiab] OR addiction[tiab]) AND (cognition[tiab] OR cystitis[tiab] OR depression[tiab] OR withdrawal[tiab] OR treatment[tiab])',
+    '(ketamine[tiab]) AND (cystitis[tiab] OR "lower urinary tract"[tiab] OR uropathy[tiab] OR bladder[tiab]) AND (misuse[tiab] OR abuse[tiab] OR dependence[tiab])',
+    '(ketamine[tiab]) AND (misuse[tiab] OR dependence[tiab] OR addiction[tiab]) AND (depression[tiab] OR anxiety[tiab] OR psychosis[tiab] OR dissociation[tiab] OR suicid*[tiab])',
+    '(etomidate[tiab]) AND (abuse[tiab] OR misuse[tiab] OR dependence[tiab] OR addiction[tiab] OR withdrawal[tiab] OR intoxication[tiab])',
+    '(etomidate[tiab]) AND ("adrenal suppression"[tiab] OR cortisol[tiab] OR intoxication[tiab] OR dependence[tiab] OR withdrawal[tiab])',
+    '(etomidate[tiab]) AND ("case report"[Publication Type] OR "case reports"[tiab] OR series[tiab] OR toxicology[tiab] OR emergency[tiab])',
+    '(("alcohol use disorder"[tiab] OR "cannabis use disorder"[tiab] OR ketamine[tiab] OR GHB[tiab] OR gambling[tiab] OR "compulsive sexual behavior"[tiab]) AND (depression[tiab] OR anxiety[tiab] OR PTSD[tiab] OR ADHD[tiab] OR bipolar[tiab] OR insomnia[tiab] OR suicid*[tiab])) AND (treatment[tiab] OR screening[tiab] OR psychotherapy[tiab] OR pharmacotherapy[tiab])',
+    '(("gambling disorder"[tiab] OR "compulsive sexual behavior"[tiab] OR "cannabis use disorder"[tiab] OR "alcohol use disorder"[tiab] OR ketamine[tiab]) AND (impulsivity[tiab] OR compulsivity[tiab] OR "reward processing"[tiab] OR craving[tiab] OR "decision making"[tiab])) AND (neurobiology[tiab] OR neuroimaging[tiab] OR intervention[tiab] OR treatment[tiab])',
+    '(("voyeuristic disorder"[tiab] OR voyeurism[tiab] OR "pedophilic disorder"[tiab] OR pedophilia[tiab] OR "image-based sexual abuse"[tiab] OR "non-consensual recording"[tiab]) AND (forensic[tiab] OR psychiatry[tiab] OR risk[tiab] OR recidivism[tiab] OR prevention[tiab] OR treatment[tiab]))',
 ]
 
 HEADERS = {"User-Agent": "AddictionBrainBot/1.0 (research aggregator)"}
 
 
-def build_query(days: int = 7, max_journals: int = 12) -> str:
+def build_query(days: int = 7, max_journals: int = 15) -> str:
     journal_part = " OR ".join([f'"{j}"[Journal]' for j in JOURNALS[:max_journals]])
     lookback = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y/%m/%d")
     date_part = f'"{lookback}"[Date - Publication] : "3000"[Date - Publication]'
     return f"({journal_part}) AND {date_part}"
+
+
+def build_extra_queries(days: int = 7) -> list[str]:
+    lookback = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y/%m/%d")
+    date_part = f'"{lookback}"[Date - Publication] : "3000"[Date - Publication]'
+    queries = []
+    for template in EXTRA_SEARCH_TEMPLATES:
+        queries.append(f"({template}) AND {date_part}")
+    return queries
 
 
 def search_papers(query: str, retmax: int = 50) -> list[str]:
@@ -180,10 +271,28 @@ def main():
         file=sys.stderr,
     )
 
-    pmids = search_papers(query, retmax=args.max_papers)
-    print(f"[INFO] Found {len(pmids)} papers", file=sys.stderr)
+    all_pmids = search_papers(query, retmax=args.max_papers)
+    print(f"[INFO] Journal search found {len(all_pmids)} papers", file=sys.stderr)
 
-    if not pmids:
+    print(
+        f"[INFO] Running {len(EXTRA_SEARCH_TEMPLATES)} extra topic searches...",
+        file=sys.stderr,
+    )
+    extra_queries = build_extra_queries(days=args.days)
+    for i, eq in enumerate(extra_queries):
+        extra_pmids = search_papers(eq, retmax=10)
+        new_pmids = [p for p in extra_pmids if p not in all_pmids]
+        if new_pmids:
+            print(
+                f"[INFO] Extra search {i+1}/{len(extra_queries)}: +{len(new_pmids)} new papers",
+                file=sys.stderr,
+            )
+            all_pmids.extend(new_pmids)
+
+    all_pmids = all_pmids[: args.max_papers * 2]
+    print(f"[INFO] Total unique PMIDs: {len(all_pmids)}", file=sys.stderr)
+
+    if not all_pmids:
         print("NO_CONTENT", file=sys.stderr)
         if args.json:
             print(
@@ -201,7 +310,7 @@ def main():
             )
         return
 
-    papers = fetch_details(pmids)
+    papers = fetch_details(all_pmids)
     print(f"[INFO] Fetched details for {len(papers)} papers", file=sys.stderr)
 
     output_data = {
