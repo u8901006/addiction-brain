@@ -16,7 +16,7 @@ import httpx
 API_BASE = os.environ.get(
     "ZHIPU_API_BASE", "https://open.bigmodel.cn/api/coding/paas/v4"
 )
-MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-4-flash")
+MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-5.1")
 
 SYSTEM_PROMPT = (
     "你是成癮醫學與心理學的文獻分析專家。你的任務是：\n"
