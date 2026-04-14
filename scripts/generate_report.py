@@ -18,6 +18,8 @@ API_BASE = os.environ.get(
 )
 MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-5.1")
 
+FALLBACK_MODELS = ["glm-5-turbo", "glm-4.7", "glm-4.7-flash"]
+
 SYSTEM_PROMPT = (
     "你是成癮醫學與心理學的文獻分析專家。你的任務是：\n"
     "1. 從給到的文獻資料中，篩選出最具當時臨床意義與研究價值的文章\n"
@@ -35,28 +37,75 @@ SYSTEM_PROMPT = (
 
 def repair_json(text: str) -> str:
     import re
+
+    def _fix_string_escapes(s: str) -> str:
+        s = re.sub(r'(?<!\\)\n', '\\n', s)
+        s = re.sub(r'(?<!\\)\t', '\\t', s)
+        s = re.sub(r'(?<!\\)\r', '\\r', s)
+        return s
+
     text = text.strip()
     if not text:
         return text
-    open_braces = text.count("{") - text.count("}")
-    open_brackets = text.count("[") - text.count("]")
-    if open_braces > 0:
-        text += "}" * open_braces
-    if open_brackets > 0:
-        text += "]" * open_brackets
+    text = _fix_string_escapes(text)
+    if text.startswith("```json"):
+        text = text[7:]
+    elif text.startswith("```"):
+        text = text[3:]
+    if text.endswith("```"):
+        text = text[:-3]
+    text = text.strip()
+
+    depth_b = 0
+    depth_sq = 0
+    in_str = False
+    escape = False
+    clean = []
+    for ch in text:
+        if escape:
+            clean.append(ch)
+            escape = False
+            continue
+        if ch == '\\' and in_str:
+            clean.append(ch)
+            escape = True
+            continue
+        if ch == '"' and not escape:
+            in_str = not in_str
+            clean.append(ch)
+            continue
+        if in_str:
+            clean.append(ch)
+            continue
+        if ch == '{':
+            depth_b += 1
+        elif ch == '}':
+            depth_b -= 1
+        elif ch == '[':
+            depth_sq += 1
+        elif ch == ']':
+            depth_sq -= 1
+        clean.append(ch)
+
+    text = ''.join(clean)
+
     last_comma = text.rfind(",")
-    last_brace = max(text.rfind("}"), text.rfind("]"))
-    if last_comma > last_brace:
+    last_close = max(text.rfind("}"), text.rfind("]"))
+    if last_comma > last_close:
         text = text[:last_comma]
+
     text = re.sub(r',\s*([}\]])', r'\1', text)
-    if text and not text.rstrip().endswith("}") and not text.rstrip().endswith("]"):
-        text = text.rstrip().rstrip(",")
-        open_braces = text.count("{") - text.count("}")
-        open_brackets = text.count("[") - text.count("]")
-        if open_braces > 0:
-            text += "}" * open_braces
-        if open_brackets > 0:
-            text += "]" * open_brackets
+
+    if in_str:
+        text += '"'
+
+    open_b = text.count("{") - text.count("}")
+    open_sq = text.count("[") - text.count("]")
+    if open_sq > 0:
+        text += "]" * open_sq
+    if open_b > 0:
+        text += "}" * open_b
+
     return text
 
 
@@ -136,7 +185,7 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
 {papers_text}
 
 請挑選出最重要的 TOP 5 篇文章放入 top_picks（按重要性排序），其餘放入 all_papers。
-每篇 paper 的 tags 最多3個，請從以下選擇：物質使用、酒精、鴉片類、尼古丁、大麻、興奮劑、ketamine、GHB、etomidate、行為成癮、gambling、gaming、強迫性性行為、窺視癖、戀童癖、偷拍、雙重診斷、心理治療、藥物治療、危害減少、復發預防、神經生物學、公共衛生、青少年、司法精神醫學。
+每篇 paper 的 tags 最多3個，請從以下選擇：物質使用、酒精、鴉片類、芬太尼、尼古丁、大麻、興奮劑、ketamine、GHB、etomidate、行為成癮、gambling、gaming、強迫性性行為、窺視癖、戀童癖、偷拍、雙重診斷、心理治療、藥物治療、危害減少、復發預防、神經生物學、公共衛生、青少年、司法精神醫學。
 注意：回傳純 JSON，不要用 ```json``` 包裹。回傳內容必須是完整可解析的 JSON，不要截斷。"""
 
     headers = {
@@ -152,10 +201,10 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
         ],
         "temperature": 0.3,
         "top_p": 0.9,
-        "max_tokens": 4096,
+        "max_tokens": 50000,
     }
 
-    models_to_try = [MODEL_NAME, "glm-4-flash"]
+    models_to_try = [MODEL_NAME] + FALLBACK_MODELS
 
     for model in models_to_try:
         payload["model"] = model
@@ -168,7 +217,7 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
                     f"{API_BASE}/chat/completions",
                     headers=headers,
                     json=payload,
-                    timeout=300,
+                    timeout=660,
                 )
                 if resp.status_code == 429:
                     wait = 30 * (attempt + 1)
@@ -204,8 +253,8 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
                     result = json.loads(repaired)
                     print(f"[INFO] JSON repaired successfully", file=sys.stderr)
                     return result
-                except:
-                    pass
+                except json.JSONDecodeError as e2:
+                    print(f"[WARN] Repair also failed: {e2}", file=sys.stderr)
                 if attempt < 2:
                     time.sleep(10)
                 continue
@@ -222,8 +271,11 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
             except httpx.ReadTimeout:
                 print(f"[WARN] {model} timed out on attempt {attempt + 1}", file=sys.stderr)
                 continue
+            except httpx.ConnectTimeout:
+                print(f"[WARN] {model} connect timeout on attempt {attempt + 1}", file=sys.stderr)
+                continue
             except Exception as e:
-                print(f"[ERROR] {model} failed: {e}", file=sys.stderr)
+                print(f"[ERROR] {model} failed: {type(e).__name__}: {e}", file=sys.stderr)
                 break
 
     print("[ERROR] All models and attempts failed", file=sys.stderr)

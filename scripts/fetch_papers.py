@@ -78,6 +78,12 @@ TOPICS = [
     "gamma-hydroxybutyrate",
     "etomidate misuse",
     "etomidate dependence",
+    "fentanyl misuse",
+    "fentanyl use disorder",
+    "fentanyl dependence",
+    "fentanyl overdose",
+    "opioid overdose",
+    "naloxone",
     "craving",
     "withdrawal",
     "relapse prevention",
@@ -137,6 +143,10 @@ EXTRA_SEARCH_TEMPLATES = [
     '(("alcohol use disorder"[tiab] OR "cannabis use disorder"[tiab] OR ketamine[tiab] OR GHB[tiab] OR gambling[tiab] OR "compulsive sexual behavior"[tiab]) AND (depression[tiab] OR anxiety[tiab] OR PTSD[tiab] OR ADHD[tiab] OR bipolar[tiab] OR insomnia[tiab] OR suicid*[tiab])) AND (treatment[tiab] OR screening[tiab] OR psychotherapy[tiab] OR pharmacotherapy[tiab])',
     '(("gambling disorder"[tiab] OR "compulsive sexual behavior"[tiab] OR "cannabis use disorder"[tiab] OR "alcohol use disorder"[tiab] OR ketamine[tiab]) AND (impulsivity[tiab] OR compulsivity[tiab] OR "reward processing"[tiab] OR craving[tiab] OR "decision making"[tiab])) AND (neurobiology[tiab] OR neuroimaging[tiab] OR intervention[tiab] OR treatment[tiab])',
     '(("voyeuristic disorder"[tiab] OR voyeurism[tiab] OR "pedophilic disorder"[tiab] OR pedophilia[tiab] OR "image-based sexual abuse"[tiab] OR "non-consensual recording"[tiab]) AND (forensic[tiab] OR psychiatry[tiab] OR risk[tiab] OR recidivism[tiab] OR prevention[tiab] OR treatment[tiab]))',
+    '(fentanyl[tiab]) AND ("use disorder"[tiab] OR misuse[tiab] OR dependence[tiab] OR overdose[tiab] OR addiction[tiab]) AND (treatment[tiab] OR naloxone[tiab] OR buprenorphine[tiab] OR methadone[tiab] OR prevention[tiab] OR "harm reduction"[tiab])',
+    '("fentanyl overdose"[tiab] OR "opioid overdose"[tiab]) AND (naloxone[tiab] OR prevention[tiab] OR "harm reduction"[tiab] OR emergency[tiab] OR "take-home naloxone"[tiab])',
+    '("fentanyl use disorder"[tiab] OR "fentanyl dependence"[tiab] OR ("fentanyl"[tiab] AND addiction[tiab])) AND (treatment[tiab] OR withdrawal[tiab] OR pharmacotherapy[tiab] OR "medication-assisted treatment"[tiab])',
+    '(fentanyl[tiab]) AND (polysubstance[tiab] OR "xylazine"[tiab] OR "heroin"[tiab] OR "counterfeit"[tiab] OR "illicitly manufactured"[tiab]) AND (overdose[tiab] OR mortality[tiab] OR epidemiology[tiab] OR treatment[tiab])',
 ]
 
 HEADERS = {"User-Agent": "AddictionBrainBot/1.0 (research aggregator)"}
