@@ -7,6 +7,7 @@ clinical psychology, and public health topics.
 
 import json
 import sys
+import os
 import argparse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
@@ -265,6 +266,40 @@ def fetch_details(pmids: list[str]) -> list[dict]:
     return papers
 
 
+def load_published_pmids(pmid_file: str, keep_days: int = 7) -> set[str]:
+    if not os.path.exists(pmid_file):
+        return set()
+    try:
+        with open(pmid_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return set()
+    cutoff = (datetime.now(timezone(timedelta(hours=8))) - timedelta(days=keep_days)).strftime("%Y-%m-%d")
+    pmids = set()
+    for entry in data:
+        if entry.get("date", "") >= cutoff:
+            for pid in entry.get("pmids", []):
+                pmids.add(str(pid))
+    print(f"[INFO] Loaded {len(pmids)} published PMIDs (last {keep_days} days)", file=sys.stderr)
+    return pmids
+
+
+def save_published_pmids(pmid_file: str, date_str: str, pmids: list[str], keep_days: int = 7):
+    data = []
+    if os.path.exists(pmid_file):
+        try:
+            with open(pmid_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            data = []
+    cutoff = (datetime.now(timezone(timedelta(hours=8))) - timedelta(days=keep_days)).strftime("%Y-%m-%d")
+    data = [e for e in data if e.get("date", "") >= cutoff]
+    data.append({"date": date_str, "pmids": [str(p) for p in pmids]})
+    with open(pmid_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"[INFO] Saved {len(pmids)} PMIDs for {date_str} to {pmid_file}", file=sys.stderr)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Fetch addiction papers from PubMed")
     parser.add_argument("--days", type=int, default=7, help="Lookback days")
@@ -273,6 +308,8 @@ def main():
     )
     parser.add_argument("--output", default="-", help="Output file (- for stdout)")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
+    parser.add_argument("--pmid-file", default="docs/published_pmids.json", help="Published PMIDs tracking file")
+    parser.add_argument("--keep-days", type=int, default=7, help="Days to keep published PMID history")
     args = parser.parse_args()
 
     query = build_query(days=args.days)
@@ -300,7 +337,13 @@ def main():
             all_pmids.extend(new_pmids)
 
     all_pmids = all_pmids[: args.max_papers * 2]
-    print(f"[INFO] Total unique PMIDs: {len(all_pmids)}", file=sys.stderr)
+    print(f"[INFO] Total unique PMIDs before dedup: {len(all_pmids)}", file=sys.stderr)
+
+    published = load_published_pmids(args.pmid_file, keep_days=args.keep_days)
+    if published:
+        before = len(all_pmids)
+        all_pmids = [p for p in all_pmids if p not in published]
+        print(f"[INFO] Deduplicated: {before} → {len(all_pmids)} (removed {before - len(all_pmids)} already published)", file=sys.stderr)
 
     if not all_pmids:
         print("NO_CONTENT", file=sys.stderr)
@@ -337,6 +380,12 @@ def main():
         with open(args.output, "w", encoding="utf-8") as f:
             f.write(out_str)
         print(f"[INFO] Saved to {args.output}", file=sys.stderr)
+
+    published_pmids_to_save = [p["pmid"] for p in papers if p.get("pmid")]
+    pmid_dir = os.path.dirname(args.pmid_file)
+    if pmid_dir:
+        os.makedirs(pmid_dir, exist_ok=True)
+    save_published_pmids(args.pmid_file, output_data["date"], published_pmids_to_save, keep_days=args.keep_days)
 
 
 if __name__ == "__main__":
