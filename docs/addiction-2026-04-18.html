@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addiction Brain &middot; 成癮醫學文獻日報 &middot; 2026年4月18日</title>
+<meta name="description" content="2026年4月18日 成癮醫學文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --line: #2a2d3a; --text: #e8e6e3; --muted: #9ca3af; --accent: #22d3ee; --accent-soft: rgba(34,211,238,0.12); --accent-warm: #f97316; --card-bg: rgba(26,29,39,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #6366f1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); }
+  .badge-count { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(12px); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: rgba(34,211,238,0.3); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), #6366f1); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #34d399; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(52,211,153,0.12); border-radius: 4px; }
+  .utility-mid { color: #fbbf24; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(251,191,36,0.12); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(156,163,175,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,17,23,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), #6366f1); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(34,211,238,0.2); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #6366f1); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .clinic-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>Addiction Brain &middot; 成癮醫學文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年4月18日</span>
+        <span class="badge badge-count">📊 23 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻趨勢高度聚焦於應對鴉片類藥物危機的新興解方，包含AI開發新藥、賽拉嗪臨床特徵識別與減害措施成本效益；同時，K他命及大麻相關的精神醫學與公共衛生研究亦占據重要篇幅。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>AI衍生之血清素受體靶向藥物用於治療鴉片類物質使用疾患</h3>
+          <p class="journal-source">Proceedings of the National Academy of Sciences of the United States of America &middot; AI-derived therapeutic development of a serotonin receptor-targeting drug for the treatment of opioid use disorder.</p>
+          <p>利用AI平台分析人類大腦組織開發出新型血清素受體藥物，在動物實驗中成功對抗芬太尼的成癮性，為鴉片類成癮治療帶來突破性新曙光。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">鴉片類成癮者及動物模型</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">AI開發的血清素受體靶向候選藥物（GATC-021等）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑或標準照護</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">減少芬太尼的自我施用與戒斷症狀</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">芬太尼</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41941629/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🚑</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>急診非法鴉片類藥物過量患者中與賽拉嗪(Xylazine)暴露相關的臨床因素</h3>
+          <p class="journal-source">Addiction (Abingdon, England) &middot; Clinical factors linked to xylazine exposure in emergency department patients with illicit opioid overdose.</p>
+          <p>探討急診鴉片類過量患者體內驗出賽拉嗪的臨床特徵，發現與心搏過緩及特定用藥史有關，有助於臨床第一線快速辨識高危險群。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">急診因非法鴉片類藥物過量的患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">毒理學檢測確認帶有賽拉嗪暴露</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無賽拉嗪暴露之過量患者</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">人口統計學與臨床表徵差異（如心搏過緩）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">芬太尼</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41531011/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">💻</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>「天沒有塌下來」：疫情期間遠距醫療擴張導致丁丙諾啡處方天數增加的患者與臨床醫師經驗</h3>
+          <p class="journal-source">Journal of addiction medicine &middot; "The Sky Didn't Fall": Patient and Clinician Experiences With Increased Buprenorphine Prescription Lengths During Pandemic-related Telehealth Expansion.</p>
+          <p>研究證實透過遠距醫療開立較長天數的丁丙諾啡處方，不僅未造成明顯安全問題，反而提升了病患便利性與治療延續性。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受丁丙諾啡治療的鴉片類成癮患者與臨床醫師</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">較長天數的丁丙諾啡處方搭配遠距醫療</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">傳統常規的短天數處方與實體門診</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">患者用藥遵從性、滿意度及臨床決策安全性</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">藥物治療</span><span class="tag">復發預防</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41997587/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🌿</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>美國大麻使用疾患與自殺意念：2014-2023年的持續風險與穩定趨勢</h3>
+          <p class="journal-source">Journal of studies on alcohol and drugs &middot; Cannabis Use Disorder and Suicidal Ideation in the United States: Persistent Risk and Stable Trends, 2014-2023.</p>
+          <p>分析十年數據指出，即便大麻政策放寬，大麻使用疾患（CUD）與自殺意念之間的強烈關聯依舊存在且未見趨緩，需警覺其精神共病風險。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">美國成年人口（2014-2023年共41萬餘人）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">患有大麻使用疾患 (CUD)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無CUD的一般大眾</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">過去一年自殺意念的盛行率與風險關聯</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">雙重診斷</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41995600/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>電痙攣療法與K他命治療後平均復發時間之比較：系統性文獻回顧</h3>
+          <p class="journal-source">Journal of psychopharmacology (Oxford, England) &middot; Comparison of average time-to-relapse following ECT versus ketamine - A systematic review.</p>
+          <p>針對難治型憂鬱症，系統性比較K他命與電痙攣療法（ECT）的抗憂鬱效果持續時間，為臨床選擇維持治療策略提供實證依據。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">治療難治型憂鬱症 (TRD) 患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">K他mine治療</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">電痙攣療法 (ECT)</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">治療後的平均憂鬱症復發時間</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span><span class="tag">雙重診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41988667/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>使用芬太尼後出現海洛因相關海綿狀白質腦病變與CHANTER症候群的混合表現：病例報告</h3>
+          <p class="journal-source">Journal of addiction medicine</p>
+          <p>通報了芬太尼使用者同時出現海綿狀白質腦病變與小腦/海馬迴毒性(CHANTER)的罕見混合神經學損傷病例。</p>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">芬太尼</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41997585/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚭</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>薄荷醇香菸禁售區域中含合成冷卻劑(WS-3)香菸的銷售分析</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>在實施薄荷醇香菸禁令的地區（如加州），菸草公司轉而使用無薄荷味的合成冷卻劑WS-3作為替代，其銷售量顯著增加。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41995035/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>與物質相關兒童死亡的司法鑑定解讀與年齡分佈模式</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>探討因物質濫用導致兒童死亡的司法鑑定特徵與年齡分佈模式，突顯了物質泛滥對嬰幼兒安全的致命威脅。</p>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">司法精神醫學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41992672/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍺</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>探討無酒精和低酒精飲料的定義與相關線索</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>研究消費者對於無酒精及低酒精飲料的定義認知與產品線索關聯，以釐清此類產品在減害中的角色。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41887181/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>經驗學習：在加拿大招募和吸引重度大麻使用者參與線上介入措施的挑戰</h3>
+          <p class="journal-source">Journal of cannabis research</p>
+          <p>分析針對重度大麻使用者推行線上治療計畫時所面臨的招募困難與參與度低落等現實挑戰。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41992268/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏥</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>非醫療用大麻合法化與青少年住院大麻使用疾患，2008-2020年：準實驗分析</h3>
+          <p class="journal-source">The International journal on drug policy</p>
+          <p>評估大麻合法化政策對青少年因大麻使用疾患住院率的影響，發現特定州別的青少年住院診斷有增加趨勢。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">青少年</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41844072/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦴</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>骨折固定的高低起伏：使用大麻、菸草或兩者皆未使用者的腕骨骨折固定術後併發症</h3>
+          <p class="journal-source">Hand (New York, N.Y.)</p>
+          <p>回顧性分析顯示，相較於菸草使用者，大麻使用者在腕骨骨折手術後的併發症風險並未顯著增加。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">尼古丁</span><span class="tag">物質使用</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40350780/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">illow</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>K他命用於嚴重疾病的憂鬱症：證據、安全性與實用方法</h3>
+          <p class="journal-source">Journal of pain and symptom management</p>
+          <p>探討K他命在安寧療護等嚴重疾病患者中的快速抗憂鬱效果與實用的臨床給藥策略。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41997505/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📈</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>基線失配負向波幅預測健康志願者中K他命作用的方向和強度</h3>
+          <p class="journal-source">Biological psychiatry</p>
+          <p>發現大腦聽覺事件相關電位(MMN)的基線振幅，可以預測個體施打K他mine後的反應方向與強度。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41997476/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💉</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>以Propofol鎮靜下使用K他命治療慢性疼痛與憂鬱症的雙盲隨機安慰劑對照試驗協定與先導結果</h3>
+          <p class="journal-source">Pain management</p>
+          <p>提出利用Propofol鎮靜來掩蓋K他命引起的解離副作用，以維持臨床試驗雙盲有效性的新穎試驗設計。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41988848/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>前額葉皮質星狀膠質細胞參與裸蓋菇素在慢性壓迫壓力小鼠模型中的快速抗憂鬱作用</h3>
+          <p class="journal-source">Progress in neuro-psychopharmacology & biological psychiatry</p>
+          <p>動物實驗證實，裸蓋菇素的快速抗憂鬱作用與前額葉皮質的A1星狀膠質細胞活性調節有關。</p>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41974301/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Benzodiazepines、鋰鹽與Lamotrigine在調節皮下Es-ketamine抗憂鬱效果中的角色</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>自然觀察研究指出，併用BZD或情緒穩定劑可能會影響難治型憂鬱症患者接受 Esketamine 治療的最終療效。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41933621/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🤖</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>使用藥物者使用減害自動販賣機之意圖：盛行率與相關因素之橫斷面研究</h3>
+          <p class="journal-source">Health promotion practice</p>
+          <p>調查發現注射藥物者對於減害自動販賣機(提供乾淨針具與納洛酮)有高度使用意願，有助於拓展無接觸減害服務。</p>
+          <div class="card-footer">
+            <span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41992928/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💲</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>FDA批准後北卡羅萊納州非處方Naloxone的銷售與價格差異</h3>
+          <p class="journal-source">Journal of substance use and addiction treatment</p>
+          <p>研究顯示Naloxone轉為非處方藥後，雖然可及性上升，但各地區仍存在顯著的銷售量與價格差異，影響弱勢族群取得。</p>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41748074/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏥</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>急診室優化最佳實踐建議後增加Naloxone發放予鴉片類過量患者之研究</h3>
+          <p class="journal-source">The American journal of emergency medicine</p>
+          <p>透過優化急診資訊系統的最佳實踐建議提醒，能顯著提升急診對鴉片類過量患者發放Naloxone的比例。</p>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41690881/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👃</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>鼻用Naloxone逆轉鴉片類藥物所致呼吸抑制在未使用過鴉片類者與每日使用者中的效果</h3>
+          <p class="journal-source">Anesthesiology</p>
+          <p>證實4mg鼻用Naloxone能有效且迅速地逆轉芬太尼等強效鴉片類藥物引起的呼吸抑制，支持其作為第一線急救藥物。</p>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">芬太尼</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41642634/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📉</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>澳洲首都領地實施與擴大減害介入措施的成本效益分析</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>分析顯示擴大實施包含針具交換、安全注射室及納洛酮發放等減害措施，能帶來顯著的醫療成本節約與公衛效益。</p>
+          <div class="card-footer">
+            <span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41592220/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚐</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>低門檻流動醫療車發放丁丙諾啡治療鴉片類物質使用疾患的經濟分析</h3>
+          <p class="journal-source">Journal of substance use and addiction treatment</p>
+          <p>評估行動醫療車直接在社區高風險區域發放丁丙諾啡的營運成本，證實此低門檻模式具備財務可行性與推廣價值。</p>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">危害減少</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41577036/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">鴉片類</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ketamine</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:62%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">大麻</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">危害減少</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">尼古丁</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">酒精</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">鴉片類危機</span><span class="keyword">賽拉嗪</span><span class="keyword">遠距醫療</span><span class="keyword">大麻合法化</span><span class="keyword">K他mine</span><span class="keyword">減害策略</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <span class="clinic-name">李政洋身心診所首頁</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📨</span>
+        <span class="clinic-name">訂閱電子報</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：glm-5.1</span>
+    <span><a href="https://github.com/u8901006/addiction-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
