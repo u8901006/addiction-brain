@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addiction Brain &middot; 成癮醫學文獻日報 &middot; 2026年4月28日</title>
+<meta name="description" content="2026年4月28日 成癮醫學文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --line: #2a2d3a; --text: #e8e6e3; --muted: #9ca3af; --accent: #22d3ee; --accent-soft: rgba(34,211,238,0.12); --accent-warm: #f97316; --card-bg: rgba(26,29,39,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #6366f1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); }
+  .badge-count { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(12px); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: rgba(34,211,238,0.3); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), #6366f1); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #34d399; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(52,211,153,0.12); border-radius: 4px; }
+  .utility-mid { color: #fbbf24; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(251,191,36,0.12); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(156,163,175,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,17,23,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), #6366f1); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(34,211,238,0.2); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #6366f1); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .clinic-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>Addiction Brain &middot; 成癮醫學文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年4月28日</span>
+        <span class="badge badge-count">📊 25 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻趨勢主要集中在酒精使用障礙（AUD）的創新治療與生理機制探討，以及行為成癮（如賭博、遊戲）的共病與風險因子分析。亮點包含神經心理復健對AUD執行功能的助益，以及新藥Sunobinop的低濫用潛力評估。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>神經心理復健對酒精使用障礙患者執行功能的正面影響：前瞻性世代研究</h3>
+          <p class="journal-source">Drug and alcohol review &middot; Executive Functions in Alcohol Use Disorder: The Positive Role of Neuropsychological Rehabilitation-Prospective Cohort Study.</p>
+          <p>研究證實神經心理復健能顯著改善酒精使用障礙患者的執行功能，有助於提升治療效果與生活品質，為臨床復健提供實證支持。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">酒精使用障礙患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">神經心理復健</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">常規治療或未接受復健</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">執行功能（抑制、工作記憶、彈性）的改善</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">心理治療</span><span class="tag">復發預防</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41923529/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>新型NOP受體部分促效劑Sunobinop的單一口服劑量人類濫用潛力研究</h3>
+          <p class="journal-source">Journal of clinical psychopharmacology &middot; Human Abuse Potential of Single Oral Doses of Sunobinop, a Novel, Highly Potent, and Selective Partial Agonist for Nociceptin/Orphanin-FQ Peptide (NOP) Receptors.</p>
+          <p>針對治療失眠與酒精使用障礙的新藥Sunobinop進行濫用潛力評估，顯示其相較於傳統鎮靜劑具有較低的濫用風險，具備成為安全替代藥物的潛力。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">有中樞神經抑制劑非醫療使用史的健康成人</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">單一口服劑量的Sunobinop</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">Triazolam（陽性對照組）與安慰劑</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">濫用潛力與藥效動力學指標</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">藥物治療</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41869738/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🎰</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>賭博雙重障礙的臨床視角：義大利跨斷面多中心研究</h3>
+          <p class="journal-source">Journal of psychiatric research &middot; A clinical perspective of Gambling Dual Disorder: an italian cross-sectional multicenter study.</p>
+          <p>研究界定並驗證了「賭博雙重障礙」的概念，指出賭博障礙合併其他精神疾病的患者具有特定的臨床特徵，需整合性的治療策略。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">賭博障礙門診患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無 (觀察性研究)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">純賭博障礙患者 vs. 合併其他精神疾病的賭博障礙患者</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">臨床特徵與精神病理學差異</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">雙重診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42044564/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🎮</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>情緒調節概況調節了感知父母衝突、同儕霸凌受害與青少年網路遊戲障礙之間的關聯</h3>
+          <p class="journal-source">Addictive behaviors &middot; Emotion regulation profiles moderate links between perceived interparental conflict, peer bullying victimization, and adolescent internet gaming disorder.</p>
+          <p>青少年的情緒調節能力在家庭衝突、校園霸凌與網路遊戲成癮之間扮演關鍵的調節角色，為青少年成癮預防提供了介入的靶點。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">中國青少年</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無 (觀察性研究)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">不同的情緒調節類型</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">網路遊戲障礙的風險</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gaming</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42035710/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">💭</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>古柯鹼使用障礙的物質相關侵入性記憶有別於渴求但與之相關</h3>
+          <p class="journal-source">Addiction (Abingdon, England) &middot; Substance-related intrusive memories in cocaine use disorder are different from but associated with craving.</p>
+          <p>透過生態瞬時評估法證實古柯鹼成癮者的自發性用藥記憶與渴求是不同但相關的構念，為復發預防提供了新的認知介入標的。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">古柯鹼使用障礙患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無 (生態瞬時評估法觀察)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">N/A</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">侵入性記憶與渴求的關聯性及自然情境下的變化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">興奮劑</span><span class="tag">復發預防</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42044882/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>美國青少年接觸社群媒體尼古丁袋內容的相關因素</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>探討美國青少年在社群媒體上接觸尼古丁袋資訊的現況及相關因素，凸顯數位行銷對青少年物質使用的潛在影響。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">青少年</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42041118/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🛑</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>美國吸菸成人使用FDA授權電子煙的意圖</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>評估美國成人吸菸者對於使用FDA授權電子煙作為戒菸或減害工具的意願與接受度。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42041117/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💧</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>透過廢水分析對英格蘭非法藥物消費進行高時間解析度監測</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>利用廢水流行病學進行為期一年的高解析度監測，揭示英格蘭社區非法藥物（如K他命）的使用模式與共病使用情形。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">公共衛生</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42035788/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📝</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>賭博危害量表的條件性施測：心理計量學合理性與效率影響</h3>
+          <p class="journal-source">Psychology of addictive behaviors : journal of the Society of Psychologists in Addictive Behaviors</p>
+          <p>驗證了賭博危害量表(GHM)中嚴重題項的條件性施測策略，能在不損失信效度的情況下提升臨床篩檢效率。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42043404/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔍</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>使用身分認同理論於戒菸研究：範圍回顧</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>回顧並統整了「身分認同」在戒菸研究中的理論應用，呼籲未來研究應建立標準化的建構衡量方式。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">心理治療</span><span class="tag">復發預防</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42033316/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🩸</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>探討發炎生物標記在吸菸與憂鬱症關係中的中介角色：來自NHANES研究的發現</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>利用大型人口調查數據證實全身性發炎反應是吸菸導致憂鬱症的關鍵中介因子，深化了對菸癮共病機制的理解。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">雙重診斷</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42033306/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🤰</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>影響孕期吸菸與娛樂性用藥的社會生態因素：來自Albany嬰兒與母親研究的洞察</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>基於社會生態模式，探討多重生命歷程因素如何影響弱勢孕婦的物質使用行為，強調全面性介入的必要性。</p>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">公共衛生</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42033300/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏥</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>影響賭博障礙患者13年內治療入院頻率的因素</h3>
+          <p class="journal-source">Journal of gambling studies</p>
+          <p>長期追蹤研究指出，特定賭博類型與共病精神疾病會增加賭博障礙患者反覆入院治療的頻率。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">雙重診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42014609/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📉</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>格陵蘭酒精、大麻與賭博障礙門診治療後的社會經濟結果：收入、就業與福利使用的變化</h3>
+          <p class="journal-source">Journal of substance use and addiction treatment</p>
+          <p>全國性登記研究顯示，成癮治療雖能穩定個案的工作與福利狀態，但對實質收入提升有限，突顯長期社會支持的重要性。</p>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">行為成癮</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41833713/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💸</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>較高的衝動性與較低的提前結算投注傾向相關</h3>
+          <p class="journal-source">Addictive behaviors reports</p>
+          <p>研究發現衝動性高的運動博弈玩家較不傾向使用「提前結算」功能，可能增加持續下注與財務損失的風險。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41399746/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚠️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>注意力不足過動症中的性偏好倒錯與性偏好障礙：觀察性研究</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>ADHD患者不僅有較高的衝動性，其性偏好倒錯與性偏好障礙的盛行率也高於一般族群，需在臨床上特別關注。</p>
+          <div class="card-footer">
+            <span class="tag">雙重診斷</span><span class="tag">強迫性性行為</span><span class="tag">司法精神醫學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41905118/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚧</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>烏干達農村地區常見精神疾病與酒精使用障礙的經驗性污名：質性研究</h3>
+          <p class="journal-source">SSM. Mental health</p>
+          <p>探討烏干達農村地區酒癮與精神疾病患者所面臨的污名化經驗，指出這是阻礙求助與治療的重大障礙。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">雙重診斷</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42022575/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🤝</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>20多歲時的種族化經歷與態度對接近中年健康狀態的發展關聯</h3>
+          <p class="journal-source">Journal of racial and ethnic health disparities</p>
+          <p>長期研究發現，早年經歷種族歧視或表達種族仇恨，與中年時期較差的身心健康及酒精使用行為有關。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">公共衛生</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42020647/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>發炎、心理健康與酒精行為：利用家族社區樣本測試關聯</h3>
+          <p class="journal-source">Brain, behavior, & immunity - health</p>
+          <p>社區成人樣本研究發現，發炎反應與憂鬱症狀相關，但與酒精使用行為的直接關聯較弱，暗示機制可能更為複雜。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">雙重診斷</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41969823/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>強迫症中的酒精依賴研究</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>強迫症患者中有高達13%具有酒精依賴史，且與較嚴重的強迫症狀及特定人格特質相關，需雙向篩檢。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">雙重診斷</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41950712/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚴</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>高風險飲酒青年對急性飛輪運動與伸展運動的認知、神經生理與壓力反應差異</h3>
+          <p class="journal-source">Pharmacology, biochemistry, and behavior</p>
+          <p>單次高強度運動能改善高風險飲酒青年的認知功能與心理生理指標，為運動介入提供初步科學證據。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">危害減少</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41895533/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">☁️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>應用深度學習語言模型分析推特貼文以了解美國水菸吸食的網路情緒 (2021-2023)</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>透過AI分析社群媒體，發現美國年輕人對水菸仍普遍持有正面情緒，凸顯了數位公共衛生介入的挑戰。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">公共衛生</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42044049/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍻</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>年輕成人事件層面的飲酒動機與情緒對酒精相關後果的預測</h3>
+          <p class="journal-source">Psychology of addictive behaviors : journal of the Society of Psychologists in Addictive Behaviors</p>
+          <p>分析顯示，在單次飲酒事件開始時的情緒與動機（特別是應對與增強動機），能有效預測後續的正向與負向飲酒後果。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">青少年</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42043405/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">✉️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>致編輯的信：對Wang等人「賭博障礙與自殺風險：後設流行病學研究」的評論</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>針對賭博障礙與自殺風險的後設分析研究提出學術評論與方法學探討。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41915998/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>連續性性犯罪中的加害者-受害者互動：使用描述性統計分析的行為方法</h3>
+          <p class="journal-source">Journal of interpersonal violence</p>
+          <p>分析連續性侵犯的行為模式與互動特徵，有助於建立司法精神醫學中的犯罪側寫與風險評估。</p>
+          <div class="card-footer">
+            <span class="tag">司法精神醫學</span><span class="tag">窺視癖</span><span class="tag">偷拍</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40145490/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">物質使用</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">15</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">行為成癮</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:53%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">雙重診斷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">司法精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:13%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">公共衛生</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:80%"></div></div>
+              <span class="topic-count">12</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">酒精使用障礙</span><span class="keyword">雙重診斷</span><span class="keyword">行為成癮</span><span class="keyword">神經心理復健</span><span class="keyword">物質濫用潛力</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <span class="clinic-name">李政洋身心診所首頁</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📨</span>
+        <span class="clinic-name">訂閱電子報</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：glm-5.1</span>
+    <span><a href="https://github.com/u8901006/addiction-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
