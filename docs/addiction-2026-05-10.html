@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addiction Brain &middot; 成癮醫學文獻日報 &middot; 2026年5月10日</title>
+<meta name="description" content="2026年5月10日 成癮醫學文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --line: #2a2d3a; --text: #e8e6e3; --muted: #9ca3af; --accent: #22d3ee; --accent-soft: rgba(34,211,238,0.12); --accent-warm: #f97316; --card-bg: rgba(26,29,39,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #6366f1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); }
+  .badge-count { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(12px); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: rgba(34,211,238,0.3); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), #6366f1); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #34d399; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(52,211,153,0.12); border-radius: 4px; }
+  .utility-mid { color: #fbbf24; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(251,191,36,0.12); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(156,163,175,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,17,23,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), #6366f1); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(34,211,238,0.2); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #6366f1); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .clinic-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>Addiction Brain &middot; 成癮醫學文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年5月10日</span>
+        <span class="badge badge-count">📊 9 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日成癮醫學文獻高度關注臨床實用工具與雙重診斷的介入，特別是針對物質使用疾患合併PTSD或自傷風險的評估與治療。同時，因應毒品市場變化，芬太尼與甲苯噻嗪的檢測及危害減少措施，以及新型行為成癮評估工具的開發，皆為臨床實務帶來重大進展。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🚨</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>物質使用疾患者者的自我傷害：預測因子與風險模型</h3>
+          <p class="journal-source">Addiction (Abingdon, England) &middot; Self-harm in individuals with substance use disorders: Predictive factors and risk model.</p>
+          <p>針對超過44萬名物質使用疾患者者的全國性佇列研究，建立了一個專屬於此族群的自傷風險預測模型，有助於臨床人員更精準地進行風險分層與早期介入。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">449,720名物質使用疾患確診者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">結合物質使用疾患特有預測因子的自傷風險評估模型</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">基於一般大眾樣本的臨床與結構化自傷風險評估</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">建立專屬於SUD患者的自傷風險預測模型</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">雙重診斷</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42098952/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">📝</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>書寫暴露療法用於物質使用疾患住院治療中的創傷後壓力症候群：一項隨機可行性試驗</h3>
+          <p class="journal-source">Addictive behaviors &middot; Written exposure therapy for post-traumatic stress disorder in residential treatment for substance use disorders: A randomized feasibility trial.</p>
+          <p>研究證實在成癮住院治療中加入書寫暴露療法（WET）是可行的，為同時患有PTSD的成癮患者提供了具高順從性的創傷整合治療切入點。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">在住院/機構式成癮治療中且患有PTSD的物質使用疾患者者 (N=42)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">常規治療合併書寫暴露療法 (TAU+WET)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">僅接受常規治療 (TAU)</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">在住院成癮機構中實施PTSD治療的可行性與接受度</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">雙重診斷</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42102447/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">💰</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>住院期間動機式戒菸諮商與主動轉介社區追蹤的成本效益分析</h3>
+          <p class="journal-source">Addiction (Abingdon, England) &middot; Cost-effectiveness of in-hospital motivational smoking cessation counselling and proactive referral to community-based follow-up.</p>
+          <p>針對心血管疾病住院患者，提供動機式戒菸諮商並主動轉介社區追蹤，不僅戒菸成功率加倍，更具備極高的健康經濟學效益。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">患有動脈硬化心血管疾病且吸菸的住院患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">動機式戒菸諮商合併主動轉介社區追蹤</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">簡式戒菸衛教與書面衛教資訊</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">戒菸介入措施的成本效益分析與6個月持續戒斷率</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42098913/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🔬</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>常規尿液藥物篩檢中芬太尼檢測利用率不足掩蓋了大量的芬太尼暴露</h3>
+          <p class="journal-source">Clinica chimica acta; international journal of clinical chemistry &middot; Underutilization of fentanyl testing masks substantial fentanyl exposure in routine urine drug screens in Indiana.</p>
+          <p>常規免疫法尿液篩檢常遺漏新興藥物，研究發現芬太尼檢測率低，且陽性檢體中常伴隨致命的甲苯噻嗪，凸顯了升級毒物篩檢工具的迫切性。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受常規尿液藥物篩檢的受測者 (n=2052)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">常規尿液藥物篩檢中芬太尼免疫分析法與質譜儀確效應用</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">標準未特異性針對芬太尼的尿液藥物篩檢</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">芬太尼篩檢利用率、陽性率及甲苯噻嗪共存比例</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">芬太尼</span><span class="tag">物質使用</span><span class="tag">危害減少</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41825758/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🛋️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>強迫性性行為半結構式臨床訪談（SSCI-CSB）的發展、信度與效度</h3>
+          <p class="journal-source">Journal of clinical psychology &middot; The Semi-Structured Clinical Interview for the Assessment of Compulsive Sexual Behavior (SSCI-CSB): Development, Reliability, and Validity.</p>
+          <p>開發並驗證了專門評估強迫性性行為的半結構式臨床訪談工具（SSCI-CSB），填補了過去臨床缺乏具備良好心理計量特性之訪談工具的空白。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">疑似或確診為強迫性性行為(CSB)的個案</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">實施強迫性性行為半結構式臨床訪談 (SSCI-CSB)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">現有的自評量表或少數缺乏信效度驗證的臨床訪談</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">SSCI-CSB工具的發展及其信度與效度驗證</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">強迫性性行為</span><span class="tag">行為成癮</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41711134/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🐁</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>親代尼古丁暴露重塑大鼠子代前額葉皮質的組蛋白修飾並誘發長期的情感與疼痛表型</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>動物實驗發現，親代在孕期或成年期暴露於尼古丁，會透過表觀遺傳機制改變子代大腦組蛋白修飾，進而導致子代產生長期的情緒障礙與疼痛感知異常。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">神經生物學</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42102171/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🎮</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>遊戲障礙研究中正常與疾病界線的互補視角</h3>
+          <p class="journal-source">Journal of behavioral addictions</p>
+          <p>本文提出在診斷遊戲障礙時，不應單將遊戲時間或情緒調節動機作為唯一標準，而需關注過度依賴這些機制所導致的顯著功能損害。</p>
+          <div class="card-footer">
+            <span class="tag">gaming</span><span class="tag">行為成癮</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42101913/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🎰</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>預防低度賭博危害：從個人層面轉向系統性框架方法</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>賭博危害不僅限於病態性賭博患者，呼籲公共衛生政策應從個人介入轉向系統性框架，以減少整體人群的危害負擔並防止惡化。</p>
+          <div class="card-footer">
+            <span class="tag">gambling</span><span class="tag">行為成癮</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42098928/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💉</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>獸醫麻醉劑甲苯噻嗪對大鼠芬太尼辨別刺激與速率降低效應的影響</h3>
+          <p class="journal-source">Drug and alcohol dependence</p>
+          <p>動物實驗顯示，摻雜在非法藥物中的甲苯噻嗪會改變芬太尼的主觀效應與作用時間，這可能解釋了臨床上為何混合使用會增加過量與治療困難的風險。</p>
+          <div class="card-footer">
+            <span class="tag">芬太尼</span><span class="tag">物質使用</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41916094/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">物質使用</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">行為成癮</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">雙重診斷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">公共衛生</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經生物學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">雙重診斷</span><span class="keyword">自傷風險</span><span class="keyword">書寫暴露療法</span><span class="keyword">戒菸成本效益</span><span class="keyword">芬太尼篩檢</span><span class="keyword">強迫性性行為</span><span class="keyword">甲苯噻嗪</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <span class="clinic-name">李政洋身心診所首頁</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📨</span>
+        <span class="clinic-name">訂閱電子報</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：glm-5.1</span>
+    <span><a href="https://github.com/u8901006/addiction-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
