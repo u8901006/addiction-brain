@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate addiction medicine daily report HTML using Zhipu AI (GLM-5.1).
+Generate addiction medicine daily report HTML using NVIDIA NIM Nemotron 3.
 Reads papers JSON, analyzes with AI, generates styled HTML.
 """
 
@@ -14,11 +14,11 @@ from datetime import datetime, timezone, timedelta
 import httpx
 
 API_BASE = os.environ.get(
-    "ZHIPU_API_BASE", "https://open.bigmodel.cn/api/coding/paas/v4"
+    "NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1"
 )
-MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-5.1")
+MODEL_NAME = os.environ.get("NVIDIA_MODEL", "nvidia/nemotron-3-super-120b-a12b")
 
-FALLBACK_MODELS = ["glm-5-turbo", "glm-4.7", "glm-4.7-flash"]
+FALLBACK_MODELS = ["nvidia/nemotron-3-nano-30b-a3b"]
 
 SYSTEM_PROMPT = (
     "你是成癮醫學與心理學的文獻分析專家。你的任務是：\n"
@@ -199,9 +199,11 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
         ],
-        "temperature": 0.3,
-        "top_p": 0.9,
-        "max_tokens": 50000,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "stream": False,
+        "chat_template_kwargs": {"enable_thinking": False},
+        "max_tokens": 16384,
     }
 
     models_to_try = [MODEL_NAME] + FALLBACK_MODELS
@@ -326,7 +328,7 @@ def generate_html(analysis: dict) -> str:
         <div class="news-card featured">
           <div class="card-header">
             <span class="rank-badge">#{pick.get("rank", "")}</span>
-            <span class="emoji-icon">{pick.get("emoji", "\U0001f4c4")}</span>
+            <span class="emoji-icon">{pick.get("emoji", "📄")}</span>
             <span class="{utility_class}">{util}實用性</span>
           </div>
           <h3>{pick.get("title_zh", pick.get("title_en", ""))}</h3>
@@ -353,7 +355,7 @@ def generate_html(analysis: dict) -> str:
         all_papers_html += f"""
         <div class="news-card">
           <div class="card-header-row">
-            <span class="emoji-sm">{paper.get("emoji", "\U0001f4c4")}</span>
+            <span class="emoji-sm">{paper.get("emoji", "📄")}</span>
             <span class="{utility_class} utility-sm">{util}</span>
           </div>
           <h3>{paper.get("title_zh", paper.get("title_en", ""))}</h3>
@@ -464,7 +466,7 @@ def generate_html(analysis: dict) -> str:
       <div class="header-meta">
         <span class="badge badge-date">📅 {date_display}</span>
         <span class="badge badge-count">📊 {total_count} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA NIM Nemotron 3</span>
       </div>
     </div>
   </header>
@@ -515,13 +517,13 @@ def main():
     parser.add_argument("--input", required=True, help="Input papers JSON file")
     parser.add_argument("--output", required=True, help="Output HTML file")
     parser.add_argument(
-        "--api-key", default=os.environ.get("ZHIPU_API_KEY", ""), help="Zhipu API key"
+        "--api-key", default=os.environ.get("NVIDIA_API_KEY", ""), help="NVIDIA API key"
     )
     args = parser.parse_args()
 
     if not args.api_key:
         print(
-            "[ERROR] No API key provided. Set ZHIPU_API_KEY env var or use --api-key",
+            "[ERROR] No API key provided. Set NVIDIA_API_KEY env var or use --api-key",
             file=sys.stderr,
         )
         sys.exit(1)

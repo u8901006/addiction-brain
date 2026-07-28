@@ -7,7 +7,7 @@
 ```
 GitHub Actions (每日 11:00 台北時間)
   → fetch_papers.py (PubMed API)
-  → generate_report.py (Zhipu GLM-5.1 AI 分析)
+  → generate_report.py (NVIDIA NIM Nemotron 3 AI 分析；primary: nvidia/nemotron-3-super-120b-a12b；fallback: nvidia/nemotron-3-nano-30b-a3b)
   → docs/addiction-YYYY-MM-DD.html
   → docs/index.html
   → GitHub Pages
@@ -22,7 +22,7 @@ Addiction, Addictive Behaviors, Drug and Alcohol Dependence, Psychology of Addic
 ```bash
 pip install -r scripts/requirements.txt
 python scripts/fetch_papers.py --days 7 --max-papers 10 --json --output papers.json
-ZHIPU_API_KEY=your_key python scripts/generate_report.py --input papers.json --output test.html
+NVIDIA_API_KEY=your_key python scripts/generate_report.py --input papers.json --output test.html
 ```
 
 ## 相關連結

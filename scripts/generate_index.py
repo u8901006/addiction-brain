@@ -58,7 +58,7 @@ index = f"""<!DOCTYPE html>
   <p class="count">共 {total} 期報告</p>
   <ul>{links}</ul>
   <footer>
-    <p>Powered by PubMed + Zhipu AI &middot; <a href="https://github.com/u8901006/addiction-brain">GitHub</a></p>
+    <p>Powered by PubMed + NVIDIA NIM Nemotron 3 &middot; <a href="https://github.com/u8901006/addiction-brain">GitHub</a></p>
     <p style="margin-top:8px"><a href="https://www.leepsyclinic.com/" target="_blank">🏥 李政洋身心診所</a> &middot; <a href="https://blog.leepsyclinic.com/" target="_blank">📨 訂閱電子報</a></p>
   </footer>
 </div>
