@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addiction Brain &middot; 成癮醫學文獻日報 &middot; 2026年8月1日</title>
+<meta name="description" content="2026年8月1日 成癮醫學文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --line: #2a2d3a; --text: #e8e6e3; --muted: #9ca3af; --accent: #22d3ee; --accent-soft: rgba(34,211,238,0.12); --accent-warm: #f97316; --card-bg: rgba(26,29,39,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #6366f1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); }
+  .badge-count { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(12px); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: rgba(34,211,238,0.3); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), #6366f1); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #34d399; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(52,211,153,0.12); border-radius: 4px; }
+  .utility-mid { color: #fbbf24; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(251,191,36,0.12); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(156,163,175,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,17,23,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), #6366f1); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(34,211,238,0.2); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #6366f1); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .clinic-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>Addiction Brain &middot; 成癮醫學文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年8月1日</span>
+        <span class="badge badge-count">📊 14 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA NIM Nemotron 3</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻聚焦於物質使用的社會決定因素（如政治氣候）、電子菸危害認知、煙害警示效果及新興物質如尼古丁鹽鹽的生物標誌物，顯示成癮研究正從個人行為轉向社會結構與政策影響，並加強對新興尼古틴產品的生物監測與風險感知研究。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🗳️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>政治取向與校園政治氣候對青少年物質使用的多層次影響</h3>
+          <p class="journal-source">Substance use & misuse &middot; The Multilevel Effects of Political Orientation and Political Climate on Substance Use Among Adolescents</p>
+          <p>研究發現左傾政治取向與較低物質使用相關，而極右傾向則預測較高使用率，顯示政治氣候是青少年物質使用的重要社會決定因素，具高度公共衛生與政策意涵。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">11,114 名年齡 14-18 歲的比利時荷語中學生</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">個人政治取向（左翼 vs 極右）及校園政治氣候</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">左翼取向 vs 右翼取向；無顯著左翼校園氣候主效應</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">左傾取向預測酒精、大麻、菸、電子菸使用降低；極右傾向預測使用增加</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">物質使用</span><span class="tag">青少年</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42537880/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🚬</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>以色列成年人對電子菸相對危害性的認知：來自 ITC Israel 調查的發現</h3>
+          <p class="journal-source">Addictive behaviors &middot; Beliefs about the relative harmfulness of electronic cigarettes compared with cigarettes among adults: findings from the ITC Israel Survey</p>
+          <p>研究發現以色列成年人普遍高估電子菸危害，許多認為其危害等同或大於傳統菸草，這種誤解可能阻礙菸害減害策略的接受，尤其在低 SES 和阿拉伯少數族群中較顯著。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">659 名以色列成年吸菸者（具代表性全國樣本）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無介入；測量對電子菸相對危害性的主觀認知</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">電子菸 vs 傷害香菸的主觀危害評估</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">許多受試者誤認為電子菸危害等同或大於香菸，這種誤解在低 SES 和阿拉伯少數族群中更普遍</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42537613/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">⚠️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>印度吸菸者接觸菸害警示標籤與戒菸意圖的關聯：來自 GATS-2 的證據</h3>
+          <p class="journal-source">Substance use & misuse &middot; Exposure to Tobacco Health Warnings and Quitting Intentions Among Indian Smokers: Evidence from GATS-2</p>
+          <p>研究發現印度成年吸菸者接觸菸害警示標籤（特別是圖文警示）與較高的自我報告戒菸意圖顯著相關，證實警示標籤在低中等收入國家的菸害預防中具有實效。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">9,398 名印度成年目前吸菸者（來自 GATS-2 全國代表樣本）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">接觸菸害警示標籤（特別是圖文警示）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">有無接觸菸害警示標籤</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">接觸圖文警示標籤顯著相關較高自我報告戒菸意圖（OR > 1.5，p < 0.01）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42536835/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>美國成人使用尼古丁鹽鹽與香菸煙的尼古丁代謝物與金屬生物標誌物比較：2022-2023 年國家數據</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco &middot; Comparisons of nicotine metabolites and metal biomarkers by nicotine pouch use and cigarette smoking among US adults, 2022-2023</p>
+          <p>研究發現尼古丁鹽鹽使用者雖尼古丁吸收量與香菸相當，但金屬暴露（如鎘、鉛）顯著較低，支持其為降低毒害暴露的潛在危害減少選擇，儘管尼古丁暴露量相近。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">美國成年尼古丁鹽鹽使用者 vs 香菸吸菸者（2022-2023 年國家代表性樣本）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">使用尼古丁鹽鹽 (nicotine pouches)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">香菸吸菸</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">尼古丁鹽鹽使用者尼古丁代謝物 (cotinine) 水準與香菸相當，但金屬 Biomarkers (Cd, Pb) 顯著較低（p < 0.001）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">危害減少</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42535679/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">💨</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>"這是一團你往肺裡塞的膠": 年輕成人對電子菸的看法定性研究——不使用者的保護性因素探討</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco &middot; "It's a bunch goop that you're putting in your lungs": A Qualitative Study of E-Cigarette Perceptions Among Young Adults Who Do Not Vape</p>
+          <p>研究透過訪談發現，從未使用電子菸的年輕人常以「膠狀物質」描述其肺部危害，此種生動的負面認知構成其拒絕使用電子菸的重要保護因素，揭示感知式健康信念在預防中的力量。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">48 名年齡 18-25 歲、從未使用電子菸的年輕成年人</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">半結構化訪談探討電子菸健康風險感知、社會暴露與個人價值</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">有無電子菸使用經驗（對照組為非使用者）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">參與者普遍描述電子菸為 "goop"（膠狀有害物質），此生動比喻與負面情感關聯強烈，是其拒絕使用的核心動機</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">青少年</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42535669/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📉</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>加拿大自報菸害吸菸準確度趨勢研究：社會誘導性低報的影響</h3>
+          <p class="journal-source">Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco</p>
+          <p>研究發現隨著菸害控制政策嚴格化，加拿大成年人對菸害吸菸的自我報告逐漸低報，社會誘導性偏見增加，導致自我報告數據在追蹤真實吸菸率時準確度下降，提醒研究者需補償生物標誌物以補正偏誤。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">公共衛生</span><span class="tag">驗證研究</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42535665/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍷</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>新西蘭酒精歸責健康負擔：比較風險評估研究</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>研究利用比較風險評估模型估算，酒精在新西蘭導致顯著 morbidity 與 mortality，尤其在癌症、傷害與住院方面， Mäori 族群承受不成比例的負擔，凸顯種族不平等在酒精危害中的重要性。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">公共衛生</span><span class="tag">比較風險評估</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42533539/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>線上行為成癮的藥物治療：系統性文獻回顧</h3>
+          <p class="journal-source">Future science OA</p>
+          <p>系統性文獻回顧發現，目前缺乏強力證據支持任何藥物治療對線上行為成癮（如網路遊戲、色情、社交媒體）有顯著療效，凸顯此領域治療研發的緊迫需求與現有空白。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">藥物治療</span><span class="tag">系統性文獻回顧</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42533539/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚗️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>酮胺在強化與濫用中的 NMDA 與阿片受體雙重調節：對物質使用 disorder 治療的啟示</h3>
+          <p class="journal-source">Biological psychiatry</p>
+          <p>論文指出酮胺同時作用於 NMDA 與阿片受體，這種雙重作用同時貢獻於其抗抑鬱療效與濫用潛力，提示未來藥物開發需分離治療效應與成癮風險，以開發更安全的精神藥物。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41352750/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💉</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>酮胺 vs 依托咪酸用於危重病人氣管插管：無死亡獲益但酮胺增加血流動力學不穩定</h3>
+          <p class="journal-source">Die Anaesthesiologie</p>
+          <p>該德語研究顯示，在危重病人急救氣管插管時，酮胺與依托咪酸在死亡率上無顯著差異，但酮胺組血流動力學不穩定（如高血壓、心動過速）顯著增加，提醒臨床使用酮胺時需監測心血管反應。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">etomidate</span><span class="tag">麻醉</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42439930/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>人類頭髮中非法藥物現場偵測的微型固相萃取-微型質譜整合平台</h3>
+          <p class="journal-source">Journal of chromatography. A</p>
+          <p>該研究開發了一種微型固相萃取與微型質譜結合的便攜平台，能在現場快速、準確檢測人類頭髮中傳統 illicit 藥物及新興精神活性物質（NPS），為法醫與社區戒毒提供現場檢測新工具。</p>
+          <div class="card-footer">
+            <span class="tag">Illicit drugs</span><span class="tag">Micro-SPE</span><span class="tag">現場檢測</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42320232/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💉</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>危重病人氣管插管時麻醉誘導藥物的系統性文獻回顧： ketamine 與 midazolam 的比較</h3>
+          <p class="journal-source">Journal of anesthesia</p>
+          <p>系統性文獻回顧指出，雖然等腎酸酯（etomidate）和酮胺常用於危重病人氣管插管誘導，但 etomidate 可能引發腎上腺功能不全，而 ketamine 雖能維持血流動力學卻可能增加幻觉與升壓風險，midazolam 則易造成低血壓，凸顯需個別化藥物選擇與監測。</p>
+          <div class="card-footer">
+            <span class="tag">麻醉藥物</span><span class="tag">危重病人</span><span class="tag">系統性文獻回顧</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41366602/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3> ketamine 與致幻劑在快速抗抑鬱反應中的神經免疫共鳴機制</h3>
+          <p class="journal-source">Molecular psychiatry</p>
+          <p>研究發現 ketamine 與 serotonergic 致幻劑雖作用於不同受體，但在細胞色素組學與轉錄組層面顯示共同的神經免疫激活模式（如炎症通路抑制、突觸可塑性相關基因上調），提示其快速抗抑鬱效應可能透過共享下游神經免疫通路介導，為開發新型快速作用抗抑鬱藥提供新機制線索。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">神經生物學</span><span class="tag">抗抑鬱</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42521762/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>焦慮症狀伴隨的重度抑鬱 disorder 輔助藥物治療：從單胺到最新臨床證據</h3>
+          <p class="journal-source">CNS drugs</p>
+          <p>文章指出，伴隨焦慮症狀的 MDD 患者對標準抗憂鬱藥物反應較差，自殺風險更高，目前證據支持使用 tweede世代抗憂鬱藥（如 venlafaxine、 duloxetine）、雙氮卓或低劑量非典型抗精神病藥（如 quetiapine）作為輔助治療，但益處需與副作用風險平衡。</p>
+          <div class="card-footer">
+            <span class="tag">心理治療</span><span class="tag">藥物治療</span><span class="tag">雙重診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42518156/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">物質使用</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">9</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">酒精</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">尼古丁</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:55%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ketamine</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">行為成癮</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">公共衛生</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:44%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">青少年</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:22%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經生物學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">危害減少</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">心理治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:22%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">藥物治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">麻醉藥物</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:22%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">政治氣候</span><span class="keyword">電子菸危害認知</span><span class="keyword">菸害警示標籤</span><span class="keyword">尼古丁鹽鹽</span><span class="keyword">電子菸感知</span><span class="keyword">酒精危害</span><span class="keyword">線上行為成癮</span><span class="keyword">ketamine</span><span class="keyword">麻醉藥物</span><span class="keyword">神經免疫</span><span class="keyword">焦慮併發抑鬱</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <span class="clinic-name">李政洋身心診所首頁</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📨</span>
+        <span class="clinic-name">訂閱電子報</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/addiction-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
