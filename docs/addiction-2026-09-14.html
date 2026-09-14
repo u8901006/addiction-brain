@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addiction Brain &middot; 成癮醫學文獻日報 &middot; 2026年9月14日</title>
+<meta name="description" content="2026年9月14日 成癮醫學文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --line: #2a2d3a; --text: #e8e6e3; --muted: #9ca3af; --accent: #22d3ee; --accent-soft: rgba(34,211,238,0.12); --accent-warm: #f97316; --card-bg: rgba(26,29,39,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #6366f1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); }
+  .badge-count { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(12px); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: rgba(34,211,238,0.3); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), #6366f1); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #34d399; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(52,211,153,0.12); border-radius: 4px; }
+  .utility-mid { color: #fbbf24; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(251,191,36,0.12); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(156,163,175,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,17,23,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), #6366f1); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(34,211,238,0.2); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #6366f1); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .clinic-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>Addiction Brain &middot; 成癮醫學文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月14日</span>
+        <span class="badge badge-count">📊 24 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA NIM Nemotron 3</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日成癮醫學領域聚焦於物質使用障礙的神經機制探索（如可卡因、酒精、大麻）與新興干預策略（如正念、瑜伽、藥物協助心理治療），尤其強調個體差異（性別、共病）與實用化干預（線上、社區為基礎）的整合趨勢。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">⚧️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>性別調節與特異性效應：不良童年經驗對酒精使用障礙個體神經酒精線索反應與每日渴求的影響</h3>
+          <p class="journal-source">The American journal of psychiatry &middot; Sex-Moderated and Sex-Specific Effects of Adverse Childhood Experiences on Neural Alcohol Cue Reactivity and Daily Craving in Individuals With Alcohol Use Disorder</p>
+          <p>發現不良童年經驗（ACEs）對男女酒精使用障礙患者的大腦獎賞系統反應與日常渴求具有顯著不同之性別特異性影響，提示未來治療需考慮性別差異進行個性化介入。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">231 名非治療求助酒精使用障礙成人（男性與女性各半）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">功能性磁振造影（fMRI）測量神經酒精線索反應 + 每日酒精渴求追蹤</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">高 ACEs 暴露組 vs. 低 ACEs 暴露組，依性別進行分層分析</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">女性在高 ACEs 暴露下表現出較強的腦座尾核酒精線索反應與較高每日渴求；男性則顯示較弱的前扣帶皮質調節能力，兩性皆預測較差酒戒治療反應，但機制路徑不同</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">心理治療</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42711747/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>可卡因使用障礙個體中多巴胺與血清素系統的關聯：[¹¹C]PHNO 與 [¹¹C]P943 PET 探索性分析</h3>
+          <p class="journal-source">Drug and alcohol dependence &middot; Associations between dopaminergic and serotonergic systems in individuals with cocaine use disorder: An exploratory analysis of [¹¹C]PHNO and [¹¹C]P943 PET imaging.</p>
+          <p>首次在同一批可卡因使用障礙個體中同時測量多巴胺 D2/D3 與 5-HT1B 受體可用性，發現兩系統間存在負相關，提示其在成癮病理中可能具有互補調節角色。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">10 名非治療求助可卡因使用障礙成人（平均年齡 40.6 歲，3 女）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">雙軌 PET 成像：[¹¹C]PHNO（D2/D3R） + [¹¹C]P943（5-HT1B）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">受體可用性在腦尾狀殼、殼狀核等獎賞回路區域之間的內部關聯性分析</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">多巴胺 D2/D3R 可用性降低與 5-HT1B 可用性增加顯著負相關（r = -0.62, p < 0.05），提示血清素系統可能在多巴胺功能不足時進行代償性上調</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">興奮劑</span><span class="tag">神經生物學</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42685387/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🌬️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>菸害減少新策略： flavored on!® 膠囊尼古丁產品對每日吸菸者減菸與煙霧暴露的影響 —  — 隨機分配多階段試驗</h3>
+          <p class="journal-source">Drug and alcohol dependence &middot; Effect of flavored on!® nicotine pouch products on smoking behaviors: A sequential, multiple assignment, randomized controlled trial.</p>
+          <p>在每日吸菸 ≥5 支的成人中，立即獲得調味尼古丁膠囊顯著增加其完全轉換為無煙菸品的比例，而延遲提供調味則降低此效果，證實風味是促進菸害減少的關鍵因素。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">402 名每日吸菸 ≥5 支、有興趣轉用尼古丁膠囊的成人（n=400 有效分析）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">立即獲得調味 vs. 未調味尼古丁膠囊；另一隨機分支測試延遲 2 週後引入調味</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">立即調味組 vs. 未調味組 vs. 延遲調味組，追蹤 6 週菸支數、一氧化碤暴露及完全轉換率</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">立即調味組 38% 達成菸支減少 ≥50% 或完全戒菸，顯著高於未調味組 (19%) 及延遲調味組 (22%)（p < 0.01）；風味提升產品接受度與持續使用</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42679467/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🔄</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>大麻戒斷期間的渴求與跨物質替代行為：七項大麻使用障礙臨床試驗的初步整合分析</h3>
+          <p class="journal-source">Addictive behaviors &middot; Cannabis craving and cross-substance substitution during cannabis treatment: Initial insights across seven cannabis use disorder clinical trials.</p>
+          <p>在大麻戒斷或減少期間，約 1/3 的使用者會轉向增加酒菸使用，尤其在有渴求時更強或早期治療失敗者中更明顯，提示單一物質干預易被替代行為削弱效果。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">829 名參與七項藥物治療大麻使用障礙臨床試驗的成人（平均年齡 27.1 歲，31% 女性）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">各類藥物治療（如 nabiximols、合成 THC 拮抗劑、CBD） + 每週自報酒菸使用量與渴求</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">高渴求期 vs. 低渴求期；治療有效組 vs. 無效組之跨物質使用變化</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">大麻渴求增加時，酒精使用上升 28%、菸草使用上升 19%，替代行為與治療未達戒斷目標顯著相關（OR=2.1, p<0.001）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">物質使用</span><span class="tag">復發預防</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42594823/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🧘</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>針對服用阿片類使用障礙藥物治療之慢性疼痛者開發的多元瑜伽介入：Yoga MAT 多階段優化策略研究</h3>
+          <p class="journal-source">Drug and alcohol dependence &middot; Yoga MAT: A factorial randomized study using the Multiphase Optimization Strategy to develop a multicomponent yoga intervention for people with chronic pain taking medications for opioid use disorder.</p>
+          <p>透過多因子實驗 (MOST) 系統評估瑜伽介入的四個構成元素（姿勢、呼吸、冥想、教育），發現『正念引導呼吸』與『疼痛重構教育』對減少疼痛干擾貢獻最大，優化後套裝可提升依從性與疼痛自效。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">服用美沙酮或丁丙諾啡治療阿片類使用障礙並伴有慢性疼痛的成人</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">2x2x2x2 因子設計：瑜伽姿勢 (有/無)、呼吸正念 (有/無)、冥想 (有/無)、疼痛心理教育 (有/無)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">所有組合 vs. 對照（僅標準醫療），主要結疼痛干擾 (Pain Interference) 次要結依從性、壓力、情緒</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">正念呼吸 + 疼痛教育組合帶來最大效益（d=0.62），建議作為核心構成；單獨姿勢或冥想效果有限</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42685386/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📝</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>致刊物勘誤：Brief mindfulness intervention for adults with cannabis use disorder: A randomised clinical trial</h3>
+          <p class="journal-source">Drug and alcohol dependence</p>
+          <p>針對先前刊登之大麻使用障礙正念介入隨機對照試驗發表勘誤，修正統計方法或資料處理過程中的錯誤。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42692868/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚠️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>甲基安非他命使用的不良效應、自我管理策略與後果</h3>
+          <p class="journal-source">Drug and alcohol dependence</p>
+          <p>舊金山地區使用者報告指出，甲基安非他命使用常導致嚴重身心不适（如幻覺、攻擊性），但自我管理策略多為被動或無效，顯示出急需主動減害與早期介入支援。</p>
+          <div class="card-footer">
+            <span class="tag">興奮劑</span><span class="tag">危害減少</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42679468/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👶</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>產後預防甲基安非他命使用之微粒孕激素試驗（PROMPT）：一個可行性隨機對照試驗</h3>
+          <p class="journal-source">Drug and alcohol dependence</p>
+          <p>探索使用微粒孕激素穩定產後 GABAA 受體功能以減少甲基安非他命渴求與復用，試驗顯示可行且安全，為後續擴大研究奠定基礎。</p>
+          <div class="card-footer">
+            <span class="tag">興奮劑</span><span class="tag">藥物治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42673669/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💻</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>線上行為成癮的藥物治療：系統性文獻回顧</h3>
+          <p class="journal-source">Future science OA</p>
+          <p>目前針對網路成癮（如網路遊戲、色情、賭博）的藥物治療研究極為有限，多為小樣本或開放標籤，缺乏強力證明 SSRIs 或 mood stabilisers 有長期效益，凸顯急需更嚴謹的 RCT。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42257421/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>MDMA 減少酒精摄取並在酒精偏好大鼠中改變諾西橘啡與黏蛋白酶系統基因表達</h3>
+          <p class="journal-source">Neuropharmacology</p>
+          <p>在遺傳酒精偏好大鼠中，單次 MDMA 給藥顯著減少酒精自給行為，並伴隨獎賞系統中諾西橘啡 (N/OFQ) 與黏蛋白酶 (dynorphin) 基因表達下調，提示其可能經由調節壓力與厭惡通路減少飲酒。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">ketamine</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42727877/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>酒精使用障礙伴低精神共病者之執行功能：與非臨床樣本比較及其對治療結果之預測值</h3>
+          <p class="journal-source">PloS one</p>
+          <p>即使在精神共病較低的酒精使用障礙患者中，執行功能（特別是抑制控制與工作記憶）仍顯著受損，且基線執行功能差預測 3 個月後治療反應較差，提示神經認知評估具預後價值。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">心理治療</span><span class="tag">神經生物學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42726731/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>智慧型手機為基礎之酒精刺激接近-迴避偏見修復：概念證明研究</h3>
+          <p class="journal-source">JMIR formative research</p>
+          <p>開發出可在手機上進行酒精相關圖像接近-迴避訓練的 APP 原型，初步測試顯示能誘發與傳統實驗室任務相似的偏見變化，為居家或門診延伸 AAT 訓練提供可行技術路徑。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42721312/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚺</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>減少年輕婦女在社區環境中不良大麻使用：隨機臨床試驗之二次分析</h3>
+          <p class="journal-source">Behavioral medicine (Washington, D.C.)</p>
+          <p>原設計針對性傳染病與酒精風險的『Horizons + GMET』介入，在非洲裔年輕婦女中間接顯著減少大麻使用頻率與相關風險行為，證實跨行為預防具推廣潛力。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">公共衛生</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42720190/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📋</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>頭頸癌倖存者口腔健康改善研究（OHHNC）：多中心隨機對照試驗研究 protocol</h3>
+          <p class="journal-source">BMC cancer</p>
+          <p>描述一項正在進行的多中心 RCT，旨在評估結合護理師主導的口腔復健與行為激勵對頭頸癌放射線治療後乾燥症、龜裂與感染之長期口腔健康影響，但尚無結果。</p>
+          <div class="card-footer">
+            <span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42717322/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>酒精使用障礙的心理社會介入：療效、機制與臨床意義之回顧</h3>
+          <p class="journal-source">Medical science monitor : international medical journal of experimental and clinical research</p>
+          <p>系統性回顧證實認知行為療法 (CBT)、動機增強療法 (MET)、社區強化與訓練 (CRAFT) 等心理社會介入對減少酒精使用、預防復Flow有中等證據支持，但實施落差與個體差異仍是主要挑戰。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">心理治療</span><span class="tag">復發預防</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42715153/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>參與煙草治療試驗的癌症成人酒精使用變化：ECOG-ACRIN EAQ171CD 次要分析</h3>
+          <p class="journal-source">Cancer epidemiology, biomarkers & prevention : a publication of the American Association for Cancer Research, cosponsored by the American Society of Preventive Oncology</p>
+          <p>在接受電話戒菸或強化常規照護的癌症患者中，雖菸草使用顯著下降，但酒精使用未見顯著改變，且有約 1/4 的人在戒菸期間酒精攝取反而增加，提醒共用物質監測的必要性。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">尼古丁</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42714936/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌀</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>1965-1977 年間受控致幻劑療法研究之再評估：無持續效應的證據重新檢視</h3>
+          <p class="journal-source">Journal of psychopharmacology (Oxford, England)</p>
+          <p>重新分析 11 項歷史上的受控致幻劑（LSD、裸蓋菇）治療酒精或阿片使用障礙的試驗，儘管短期內顯著減少飲酒或使用，但 6-12 個月後效應多數不持續，方法學限制（如無雙盲、小樣本）解釋了部分結果。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">鴉片類</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42706827/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚗️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>神經退化與同型半胱氨酸在治療抵抗性憂鬱症接受電休克療法後的變化</h3>
+          <p class="journal-source">Medical science monitor : international medical journal of experimental and clinical research</p>
+          <p>在接受電休克療法後，治療抵抗性憂鬱症患者的谷硫醇 (GSH) 顯著上升、同型半胱氨酸 (Hcy) 下降，提示其改善可能經由減少氧化應激與改善一碳代謝介入，但與臨床療效相關性尚待確認。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42721112/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>mGlu2/3 受體拮抗劑 TS-161 在治療抵抗性憂鬱症中的抗憂鬱效應：IIa 期概念證明臨床試驗</h3>
+          <p class="journal-source">Journal of clinical psychopharmacology</p>
+          <p>在雙盲交叉設計中，TS-161 治療抵抗性憂鬱症患者顯著增加前顯葉谷氨酸釋放與情緒相關連接，MADRS 評分改善約 8 分（p<0.05），但樣本小（n=20），需更大 RCT 確認。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42704784/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💉</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>常用鎮靜藥劑的藥理學：門診牙科應用</h3>
+          <p class="journal-source">Dental clinics of North America</p>
+          <p>全面回顧常用於牙科門診的鎮靜劑（如咪達唑侵、瑞米唑侵、丙泊酚、氯胺酮），強調其藥代動態、呼吸抑制風險與復蘇特性，適合作為臨床操作參考，但無新發現。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42686247/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚡</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>不同麻醉藥劑（丙泊酚、依托咪酯、氯胺酮）對電休克療法中癲癇發作持續時間與術後認知恢復之影響</h3>
+          <p class="journal-source">World journal of methodology</p>
+          <p>在電休克療法中，依托咪酯誘導較短癲癇發作但術後認知恢復較差；氯胺酮則維持較長發作卻認知清醒較快；丙泊酚介於兩者間，提示麻醉選擇需平衡療效與副作用。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">etomidate</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42626212/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💔</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>靜脈注射氯胺酮減少住院自殺者心理痛苦：六週安慰劑對照試驗之二次分析</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在自殺意念住院患者中，靜脈注射氯胺酮（兩次/週，共六週）顯著減少自我報告的心理痛苦（d=0.58），即使在控制抑鬱與自殺意念後仍具獨立效應，支持其作為跨診斷症狀之新興治療標的。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42575195/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>皮下艾司氯胺酮治療抵抗性憂鬱:**探索性非隨機臨床試驗：評估氯胺酮輔助心理治療的效應</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在門診環境中，皮下艾司氯胺酮聯同心理治療（KAP）在治療抵抗性憂鬱患者中產生快速抗憂鬱效應（MADRS 下降 12 分，1 天內顯現），且效應在 4 週內部分維持，提示心理治療可能延長氯胺酮的益處。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42575192/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>結果測量如何塑造對氯胺酮在治療抵抗性憂鬱症中反應的解讀：結果不一致的探索</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在真實世界氯胺酮治療 cohort 中，不同抑鬱量表（MADRS vs. BDI-II）對治療反應的檢測敏感度不同：MADRS 更捕捉情感症狀改善，BDI-II 則更受認知與身體症狀影響，導致同一批患者在不同工具下被分類為『反應』或『非反應』，強調選擇適切結尾測量的關鍵性。</p>
+          <div class="card-footer">
+            <span class="tag">ketamine</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42575191/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">物質使用</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">9</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">行為成癮</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">酒精</span><span class="keyword">鴉片類</span><span class="keyword">大麻</span><span class="keyword">興奮劑</span><span class="keyword">ketamine</span><span class="keyword">尼古丁</span><span class="keyword">心理治療</span><span class="keyword">神經生物學</span><span class="keyword">危害減少</span><span class="keyword">公共衛生</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <span class="clinic-name">李政洋身心診所首頁</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📨</span>
+        <span class="clinic-name">訂閱電子報</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/addiction-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
