@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addiction Brain &middot; 成癮醫學文獻日報 &middot; 2026年10月12日</title>
+<meta name="description" content="2026年10月12日 成癮醫學文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --line: #2a2d3a; --text: #e8e6e3; --muted: #9ca3af; --accent: #22d3ee; --accent-soft: rgba(34,211,238,0.12); --accent-warm: #f97316; --card-bg: rgba(26,29,39,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #6366f1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.3); color: var(--accent); }
+  .badge-count { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(12px); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: rgba(34,211,238,0.3); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), #6366f1); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #34d399; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(52,211,153,0.12); border-radius: 4px; }
+  .utility-mid { color: #fbbf24; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(251,191,36,0.12); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(156,163,175,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,17,23,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), #6366f1); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(34,211,238,0.2); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #6366f1); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .clinic-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>Addiction Brain &middot; 成癮醫學文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年10月12日</span>
+        <span class="badge badge-count">📊 20 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA NIM Nemotron 3</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日成癮醫學研究聚焦於藥物污染（如獸醫用dexmedetomidine）、慢性疼痛與阿片類 agonist 治療的交叉挑戰、以及青少年行為成癮（特別是賭博與色慾）的社會媒體影響，顯示跨領域整合與預防性干預的重要性上升。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">⚠️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>管理獸醫用Medetomidine污染所致戒斷的住院容量挑戰：中級護理單位使用去甲肾上腺素的回顧報告</h3>
+          <p class="journal-source">Journal of addiction medicine &middot; Managing the Hospital Capacity Challenges of Medetomidine Withdrawal: A Retrospective Report of Dexmedetomidine Use in Intermediate Care Units.</p>
+          <p>首次報告將去甲肾上腺素用於中級護理單位處理非法阿片類藥物中獸醫用Medetomidine污染引起的嚴重戒斷，顯示其在ICU外的安全與可行性，為資源受限環境提供實用替代方案。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">因非法阿片類藥物含獸醫用Medetomidine污染而出現嚴重戒斷症狀的患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">中級護理單位（IMCU）靜脈注射去甲肾上腺素協議</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">過去依賴ICU級別照護的標準處理方式</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">成功將戒斷患者轉至IMCU照護，安全性良好，未增加不良事件，降住院資源壓力</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">阿片類</span><span class="tag">危害減少</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42860369/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>阿片類 agonist 治療患者中注射毒品者慢性疼痛治療經驗與障礙：質性研究</h3>
+          <p class="journal-source">Addiction (Abingdon, England) &middot; Chronic pain treatment experiences and barriers among opioid agonist treatment participants who inject drugs: A qualitative study.</p>
+          <p>揭示近半數接受阿片類 agonist 治療且注射毒品的患者因污名化、醫師回避與照護碎片化而無法獲得適切慢性疼痛治療，凸顯整合照護的迫切需求。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受阿片類 agonist 治療且注射毒品、伴有慢性疼痛的成人（n=20）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">深度半結構式訪談探索疼痛照護經驗</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無對照組（質性探索）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要障礙為醫療污名、提供者缺乏經驗、照護系統未整合，導致疼痛未受適切處理</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">鴉片類</span><span class="tag">心理治療</span><span class="tag">雙重診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42860613/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">📱</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>從滑動到常態：社交媒體贊助如何塑造賭博規範</h3>
+          <p class="journal-source">Journal of behavioral addictions &middot; From scroll to norm: How gambling norms are being shaped by social media sponsorships.</p>
+          <p>實驗證明社交媒體上由網紅或品牌發布的賭博贊助內容，顯著增加年輕人對賭博的所感規範（描述性與指令性），促進其正常化與潛在參與意願。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">18-20歲年輕成人（N=369）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">暴露於賭博贊助內容（社交媒體網紅 vs 品牌發布）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">非賭博控制內容</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">賭博贊助暴露顯著提升所感賭博普遍性與社會接受度（p<.01）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42853613/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🔞</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>問題性色慾使用於瑞典青少年：特徵與臨床意涵</h3>
+          <p class="journal-source">Archives of sexual behavior &middot; Problematic Pornography Use Among Swedish Adolescents: Characteristics and Clinical Implications.</p>
+          <p>發現問題性色慾使用（PPU）在瑞典青少年中佔相當比例，並與較高心理困擾、早期性啟發及性行為風險顯著相關，提醒需納入青少年心理健康評估。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">瑞典代表性樣本的青少年</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">橫斷面調查自覺PPU及相關因素</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無問題性使用者</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">PPU 與憂鬱、焦慮、性衝動行為及性侵犯風險顯著相關</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">強迫性性行為</span><span class="tag">青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42850482/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>思維未來視角對吸菸者使用電子菸之啟動的影響：來自四國調查的發現</h3>
+          <p class="journal-source">Addictive behaviors &middot; Future time perspective and vaping initiation among adults who smoke: Findings from the 2020 and 2022 ITC four country smoking and vaping surveys.</p>
+          <p>具較遠景思維（FTP）的吸菸成人較少啟動電子菸使用，此關聯在 perceiving vaping as less harmful 時被削弱，顯示認知因素對尼古丁替代品採行的調節作用。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">美國、加拿大、英國、澳洲的成人吸菸者（2020及2022年調查）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">自然觀察未來時間視角（FTP）與電子菸啟動關係</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">低FTP vs 高FTP 組別</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">高FTP 與較低電子菸啟動率相關（β=-0.15, p<.01），此效應在認為電子菸危害較小時變弱</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42580230/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏥</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>大麻相關住院在維多利亞州澳洲十年回顧：精神健康與中毒特徵</h3>
+          <p class="journal-source">Addiction (Abingdon, England)</p>
+          <p>過去十年維多利亞州大麻相關住院顯著上升，其中精神病症佔比增加，提醒合法化後需加強精神健康監測與風險溝通。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">精神衛生</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42859904/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🎲</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>問題賭博與負責任賭博行為隨時間的變化關係探索</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>縱向分析顯示負責任賭博（Positive Play）行為可預測未來問題賭博症狀減少，支持其作為預防性保護因子的潛力。</p>
+          <div class="card-footer">
+            <span class="tag">行為成癮</span><span class="tag">gambling</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42858734/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌿</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>使用方式關鍵：大麻產品型態與多種物質使用中的關聯</h3>
+          <p class="journal-source">Substance use & misuse</p>
+          <p>不同大麻使用方式（如濃縮物、食用）與多種物質使用風險關聯不同，吸食濃縮物者 polysubstance use 飆升，提醒需區分製劑評估風險。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag"> polysubstance use</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42854091/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>Combined bupropion-zonisamide 促進轉換至電子尼古丁系統時煙曝露快速降低並防止體重增加：隨機對照試驗</h3>
+          <p class="journal-source">Drug and alcohol dependence</p>
+          <p>併用布托榜酮與zonisamide顯著增強香菸減量效果，並於轉換至電子菸期間減少一氧化碳曝露並抑制體重增加，比單用布托榜酮或安慰劑更有效。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">藥物治療</span><span class="tag">體重管理</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42849341/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📏</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>What Gets Measured, Gets Managed: 成癮復原科學中的復原測量指導</h3>
+          <p class="journal-source">Substance use & misuse</p>
+          <p>強調在成癮領域建立標準化、多維度復原測量框架的必要性，以改善治療效果評估與服務整合，提出概念模型與實用建議。</p>
+          <div class="card-footer">
+            <span class="tag">復發預防</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42847606/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📈</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>韓國青少年吸菸易感性五年發展軌跡：潛在類別成長分析</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>識別出四種吸菸易感性發展軌跡，其中持續高風險群與多菸品使用（含電子菸、加熱菸）顯著相關，提醒需早期區隔干預。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">青少年</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42586005/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔁</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>住院後酒精戒斷頻繁再讀住：系統性文獻回顧與meta分析</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>酒精戒斷住院後30天內再讀住率高達25%，既往精神疾病、無門診後續照護及社會不穩定為主要風險因子，提醒需加強過渡照護與社會支援。</p>
+          <div class="card-footer">
+            <span class="tag">酒精</span><span class="tag">危害減少</span><span class="tag">復發預防</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42551121/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍃</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>大麻使用環境很重要：挪威高中生獨自使用大麻的全國流行率、關聯與後果</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>近四分之一挪威高中生報告過去一年曾獨自使用大馬草，此行為與較高使用頻率、學業問題、憂鬱症狀及違法行為顯著相關，提醒需關注使用情境而非僅頻率。</p>
+          <div class="card-footer">
+            <span class="tag">大麻</span><span class="tag">青少年</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42551120/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>美國聯邦菸草21法案對 giovani 成人尼古丁使用之準實驗證據： prevalence、戒斷與不合規</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>儘管提升購菸最低年齡至21歲，18-24歲青少年尼古丁使用總體未下降，因電子菸使用上升抵消了傳統菸草下降，顯示需同步規範新興產品。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">公共衛生</span><span class="tag">政策</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42551119/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>嵌入式社交媒體內容對電子菸態度與行為的影響：隨機對照試驗結果</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>反電子菸社交媒體內容增加曝光顯著提升年輕人對電子菸害害的感知及社會不接受度（β=0.11, p<.01），支持社交媒體為預防介入之可行管道。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">心理治療</span><span class="tag">公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42561568/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">😰</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>青少年使用燃燒菸草與驚恐發作及失眠症狀之關聯</h3>
+          <p class="journal-source">Addictive behaviors</p>
+          <p>青少年中燃燒菸草使用與驚恐發作及失眠症狀呈正相關，提醒需將物質使用視為精神症狀的潛在共病或誘因進行評估。</p>
+          <div class="card-footer">
+            <span class="tag">尼古丁</span><span class="tag">青少年</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42561567/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>大學生低自控與性強迫：檢驗強姦神話接受與超性欲作為中介變數的影響</h3>
+          <p class="journal-source">Journal of interpersonal violence</p>
+          <p>發現低自控與性侵行為之間的關聯部份透過接受強姦神話及超性欲進行中介， suggerencing 認知與衝動因素共同塑造風險。</p>
+          <div class="card-footer">
+            <span class="tag">強迫性性行為</span><span class="tag">公共衛生</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40944449/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🤝</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>支持改變：探索支持與責任圈（COSA）對STABLE-2007風險因素的影響</h3>
+          <p class="journal-source">Sexual abuse : a journal of research and treatment</p>
+          <p>訪談顯示COSA參與者認為其透過減少性慾 preoccupied 和改善人際關係能力，幫助降低再犯風險，支持其在社區重整中的治療價值。</p>
+          <div class="card-footer">
+            <span class="tag">強迫性性行為</span><span class="tag">司法精神醫學</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42857986/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👁️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>隱形在眼前：可見性、制度系統與重複性犯罪研究</h3>
+          <p class="journal-source">Journal of interpersonal violence</p>
+          <p>主張重複性犯罪之可見性受情境與制度系統強烈影響，不同資料來源（自報、司法、DNA）所得率差異大，提醒研究需注意測量偏誤。</p>
+          <div class="card-footer">
+            <span class="tag">強迫性性行為</span><span class="tag">司法精神醫學</span><span class="tag">研究方法</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42857923/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📉</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>觀察到成年男子假釋者參與性犯罪治療後STABLE-2007分數的變化</h3>
+          <p class="journal-source">Sexual abuse : a journal of research and treatment</p>
+          <p>四年縱向觀察發現參與治療的假釋者STABLE-2007分數有小幅但顯著下降，雖未達臨床變標準，支持治療對犯罪需求具緩和作用。</p>
+          <div class="card-footer">
+            <span class="tag">強迫性性行為</span><span class="tag">司法精神醫學</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42842488/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">物質使用</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:81%"></div></div>
+              <span class="topic-count">13</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">酒精</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">鴉片類</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">芬太尼</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">尼古丁</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+              <span class="topic-count">7</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">大麻</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:31%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">興奮劑</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ketamine</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">GHB</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">etomidate</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">行為成癮</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:62%"></div></div>
+              <span class="topic-count">10</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">gambling</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:18%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">gaming</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">強迫性性行為</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:31%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">窺視癖</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">戀童癖</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">偷拍</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">雙重診斷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">心理治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:93%"></div></div>
+              <span class="topic-count">15</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">藥物治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">危害減少</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:18%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">復發預防</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:18%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經生物學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:0%"></div></div>
+              <span class="topic-count">0</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">公共衛生</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">16</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">青少年</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:62%"></div></div>
+              <span class="topic-count">10</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">司法精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">4</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">Medetomidine</span><span class="keyword">慢性疼痛</span><span class="keyword">社交媒體賭博</span><span class="keyword">問題性色慾使用</span><span class="keyword">未來時間視角</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <span class="clinic-name">李政洋身心診所首頁</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📨</span>
+        <span class="clinic-name">訂閱電子報</span>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/addiction-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
